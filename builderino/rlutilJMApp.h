@@ -11,7 +11,7 @@ public:
 	virtual void Draw();
 	virtual void Start();
 	virtual void Update();
-	virtual void OnClose();
+	virtual void _cdecl* OnClose();
 
 	void App();
 private:

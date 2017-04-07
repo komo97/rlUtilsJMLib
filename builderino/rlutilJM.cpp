@@ -108,7 +108,7 @@ void rlUtilJM::ClearBuffer()
 		{
 			screenBuffer[i][j].setBackground(0);
 			screenBuffer[i][j].setColor(0);
-			screenBuffer[i][j].setChar(' ');
+			screenBuffer[i][j].setChar('\0');
 			screenBuffer[i][j].setOcupant(EMPTY);
 		}
 	}
