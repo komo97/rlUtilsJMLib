@@ -10,14 +10,14 @@ Bar::~Bar()
 {
 }
 
-void Bar::setColors(int col1, int col2, int col3)
+void Bar::setColors(const int& col1, const int& col2, const int& col3)
 {
 	color1 = col1;
 	color2 = col2;
 	color3 = col3;
 }
 
-void Bar::InitSprite(int _width, int _height)
+void Bar::InitSprite(const int& _width, const int& _height)
 {
 	spriteSizeX = _width;
 	spriteSizeY = _height;

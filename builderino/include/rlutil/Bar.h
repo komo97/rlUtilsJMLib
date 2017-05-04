@@ -6,16 +6,16 @@
 class Bar{
 public:
 	Bar(int _x, int _y);
-
+	~Bar();
 	//setters
-	inline void setX(int _x) { x = _x; };
-	inline void setY(int _y) { y = _y; };
-	inline void setValue(int val) { currValue = val; };
-	inline void setMax(int val) { maxValue = val; };
-	void setColors(int col1, int col2, int col3);
-	inline void setConstraint(int cons) { constraint = cons; };
-	void InitSprite(int _width, int _height);
-
+	inline void setX(const int& _x) { x = _x; };
+	inline void setY(const int& _y) { y = _y; };
+	inline void setValue(const int& val) { currValue = val; };
+	inline void setMax(const int& val) { maxValue = val; };
+	void setColors(const int& col1, const int& col2, const int& col3);
+	inline void setConstraint(const int& cons) { constraint = cons; };
+	void InitSprite(const int& _width, const int& _height);
+	 
 	//getters
 	inline int getX() { return x; };
 	inline int getY() { return y; };
@@ -26,11 +26,12 @@ public:
 	inline int getSizeVer() { return spriteSizeY; };
 
 	//modders
-	inline void addValue(int x) { currValue += x; };
+	inline void addValue(const int& x) { currValue += x; };
 
 	void draw();
 
 private:
+	void DrawBody();
 	int x, y;
 	int currValue, maxValue;
 	int color1, color2, color3, constraint;

@@ -51,6 +51,7 @@
 #include <thread>
 #include <queue>
 #include <functional>
+#include <mutex>
 #define _CRT_SECURE_NO_WARNINGS
 
 
@@ -101,18 +102,7 @@ class Entity;
 static class rlUtilJM
 {
 public:
-	///<summary>
-	///Keeps the screen size at all times during runtime. 
-	///Call one time each frame at it's start.
-	///</summary>
-	static void KeepScreenSize();
 
-	///<summary>
-	///Changes the screen size along with the font size. You should only use this at a startup function and once.
-	///</summary>
-	///<param name="_x">Window's width.</param>
-	///<param name="_y">Window's height.</param>
-	static void WindowSize(int _x, int _y);
 
 	///<summary>Initiates an event for music to reproduce. Only works with .ogg and .flac files. This is a song that will play only if nothing else is playing.
 	///It may stop any other song from playing by using stopCurrentAudio
@@ -121,18 +111,37 @@ public:
 	///<param name="_loop">Will the music loop? TRUE or FALSE only</param>
 	///<param name="_vol">The music volume</param>
 	///<param name="_stopCurrentAudio">If the current music should be stopped to start a new one</param>
-	static void PlayMusicBackground(char* _musicPath, BOOL _loop, float _vol, BOOL _stopCurrentAudio);
+	static void PlayMusicBackground(const char* _musicPath, const BOOL& _loop, const float& _vol, const BOOL& _stopCurrentAudio);
 
 	///<summary>Initiates an event for music to reproduce. Only works with .ogg and .flac files.
 	///<remark>Uses SFML</remark></summary>
 	///<param name="_musicPath">The complete path to the music file. From "C:\\"</param>
 	///<param name="_vol">The music volume</param>
-	static void PlaySoundEffect(char* _musicPath, float _vol);
+	static void PlaySoundEffect(const char* _musicPath, const float& _vol);
 
 	///<summary>
-	///Makes the CMD have square pixels. It's already called in WindowSize;
+	///Changes the volume of the background music.
 	///</summary>
-	static void FontSize();
+	static void ChangeBackgroundVolume(const float& _vol);
+
+	///<summary>
+	///Returns the background's music volume.
+	///</summary>
+	static float GetBackgroundVolume();
+
+	///<summary>
+	///Pauses the background music.
+	///</summary>
+	static void PauseBackgroundMusic();
+
+	///<summary>
+	///Unpauses the background music.
+	///</summary>
+	static void UnPauseBackgroundMusic();
+
+	static bool BackgroundMusicIsPlaying();
+
+	static bool BackgroundMusicIsPaused();
 
 	///<summary>
 	///To print the sprites to the screen the engine creates a fake screen macrobuffer which later is printed onto the console.
@@ -144,23 +153,8 @@ public:
 	///<param name="posx">The buffer's position in X.</param>
 	///<param name="posy">The buffer's position in Y.</param>
 	///<param name="ocup">The tile's ocupant.</param>
-	static void AddToBuffer(int _colorVal, int _backVal, char _letVal, int posx, int posy, int ocup, Entity* entity);
-
-	///<summary>
-	///Clears the fake screen buffer. Call each frame on the start before anything else.
-	///</summary>
-	static void ClearBuffer();
-
-	///<summary>
-	///Print method. Always call only once at the end of each frame.
-	///</summary>
-	static void PrintBuffer();
-
-	///<summary>
-	///Creates the aforementioned fake screen buffer. Do not call anywhere.
-	///It is already called in <code>WindowSize()</code> 
-	///</summary>
-	static void CreateFakeScreenBuffer();
+	static void AddToBuffer(const int& _colorVal, const int& _backVal,
+		const char& _letVal, const int& posx, const int& posy, const int& ocup, Entity* const& entity);
 
 	///<summary>
 	///Writes text to the fake screen buffer. Using <code>cout</code> will not give any results, use this instead.
@@ -171,19 +165,20 @@ public:
 	///<param name="background">The background's color.</param>
 	///<param name="posx">The starting position of the letters in X.</param>
 	///<param name="posy">The starting position of the letters in Y.</param>
-	static void TextWrapper(const char* text, int color, int background, int posx, int posy);
+	static void TextWrapper(const char* text, const int& color,
+		const int& background, const int& posx, const int& posy);
 
 	///<summary>
 	///Alternative to filling each element in a sprite array.
 	///</summary>
 	///<param name="y">The sprite's space in Y.</param><param name="x">The sprite's space in X.</param>
 	///<param name="content">The pixel's content.</param><param name="_sprite">The array to work with by ref.</param>
-	static void AddPixel(int y, int x, int content, int**& _sprite);
+	static void AddPixel(const int& y, const int& x, const int& content, int**& _sprite);
 
 	///<summary>
 	///Returns an initialized bi dimensional Int array. Simple method for saving some lines.
 	///</summary>
-	static int** InitSpriteArray(int y, int x);
+	static int** InitSpriteArray(const int& y, const int& x);
 
 	inline static int getScreenWidth() { return SCREEN_SIZE_WIDTH; };
 	inline static int getScreenHeight() { return SCREEN_SIZE_HEIGHT; };
@@ -191,7 +186,7 @@ public:
 	///<summary>
 	///Avoid calls to this method as it is automatically called on every draw method.
 	///</summary>
-	static void AddToDrawThread(std::function<void()>);
+	static void AddToDrawThread(const std::function<void()>& func);
 
 private:
 	static int SCREEN_SIZE_WIDTH;
@@ -199,13 +194,75 @@ private:
 	static Tile** screenBuffer;
 	static Tile** lastScreenBuffer;
 	static sf::Music music;
+	static sf::SoundBuffer soundBuffer;
+	static sf::Sound sound;
 	static std::thread drawThread;
 	static std::queue<std::function<void()>> delegator;
-	static void setEventCollisionStatus(bool _status,Entity* collisioned,Entity* other);
+	static CONSOLE_FONT_INFOEX savedFont;
+	static std::mutex m;
+	static Entity *emptyEntity;
+	static bool buffIsEmpty;
+
+	///<summary>
+	///Sets the collision status for every Entity in screen.
+	///</summary>
+	static void setEventCollisionStatus(const bool& _status,Entity* collisioned,Entity* const& other);
+	
+	///<summary>
+	///Makes the CMD have square pixels. It's already called in WindowSize;
+	///</summary>
+	static void FontSize();
+	
+	///<summary>
+	///Creates the aforementioned fake screen buffer. Do not call anywhere.
+	///It is already called in <code>WindowSize()</code> 
+	///</summary>
+	static void CreateFakeScreenBuffer();
 
 protected:
+
+	///<summary>
+	///Executes the draw step. Runs in another thread.
+	///</summary>
 	static void executeDraw();
-	static void startDrawThread(std::function<void()> funct);
+
+	///<summary>
+	///Starts the draw thread.
+	///</summary>
+	static void startDrawThread(const std::function<void()>& funct);
+
+	///<summary>
+	///Keeps the screen size at all times during runtime. 
+	///Call one time each frame at it's start.
+	///</summary>
+	static void KeepScreenSize();
+
+	///<summary>
+	///Changes the screen size along with the font size. You should only use this at a startup function and once.
+	///</summary>
+	///<param name="_x">Window's width.</param>
+	///<param name="_y">Window's height.</param>
+	static void WindowSize(const int& _x, const int& _y);
+
+	///<summary>
+	///Print method. Always call only once at the end of each frame.
+	///</summary>
+	static void PrintBuffer();
+
+	///<summary>
+	///Clears the fake screen buffer. Call each frame on the start before anything else.
+	///</summary>
+	static void ClearBuffer();
+
+	///<summary>
+	///Called at program's exit. Restores the CMD functionality to 
+	///its defaults.
+	///</summary>
+	static void RestoreFont();
+
+
+
+
 };
 
 

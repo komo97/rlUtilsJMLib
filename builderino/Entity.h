@@ -2,17 +2,18 @@
 #ifndef _ENTITY_H_
 #define _ENTITY_H_
 #include "rlUtilJM.h"
+#include "rlVector2.h"
 
 class Entity {
 public:
 	///<param name="_type">The entity's type. Use CHARACTER, BACKGROUND or WALL</param>
-	Entity(int _type, int _x, int _y);
+	Entity(const int& _type, const int& _x, const int& _y);
 	///<summary>Empty entity</summary>
 	Entity();
 	~Entity();
 	//Getters
-	inline int getX() { return x; };
-	inline int getY() { return y; };
+	inline int getX() { return pos.getX(); };
+	inline int getY() { return pos.getY(); };
 	inline int getAttack() { return attack; };
 	inline int getSpeed() { return speed; };
 	inline bool isAlive() { return alive; };
@@ -25,48 +26,48 @@ public:
 	inline Entity* collisionOther() { return otherColEntity; };
 
 	//Setters
-	inline void setX(int _x) { x = _x; };
-	inline void setY(int _y) { y = _y; };
+	inline void setX(const int& _x) { pos.setX(_x); };
+	inline void setY(const int& _y) { pos.setY( _y); };
 	///<summary>
 	///Don't fill if it's a background.
 	///</summary>
-	inline void setAttack(int _attack) { attack = _attack; };
-	inline void setLife(int _life) { life = _life; };
+	inline void setAttack(const int& _attack) { attack = _attack; };
+	inline void setLife(const int& _life) { life = _life; };
 	///<summary>
 	///Don't fill if it's a background.
 	///</summary>
-	inline void setSpeed(int _speed) { speed = _speed; };
-	void setSprite(int** _sprite);
-	void setColors(int col1, int col2, int col3, int col4);
+	inline void setSpeed(const int& _speed) { speed = _speed; };
+	void setSprite(int** const& _sprite);
+	void setColors(const int& col1, const int& col2, const int& col3, const int& col4);
 	///<summary>
 	///Don't fill if it's a background.
 	///</summary>
-	inline void setWeaponColor(int _weapon) { weapon = _weapon; };
-	void setLetters(char let1, char let2, char let3, char let4);
+	inline void setWeaponColor(const int& _weapon) { weapon = _weapon; };
+	void setLetters(const char& let1, const char& let2, const char& let3, const char& let4);
 	///<summary>
 	///Don't fill if it's a background.
 	///</summary>
-	inline void setWeaponLetter(char _let) { charWeapon = _let; };
-	void setBackgrounds(int _bg1, int _bg2, int _bg3, int _bg4);
-	void InitSprite(int sizeX, int sizeY);
+	inline void setWeaponLetter(const char& _let) { charWeapon = _let; };
+	void setBackgrounds(const int& _bg1, const int& _bg2, const int& _bg3, const int& _bg4);
+	void InitSprite(const int& sizeX, const int& sizeY);
 
 	//Modifiers
-	inline void addX(int _x) { x += _x; };
-	inline void addY(int _y) { y += _y; };
-	inline void addLife(int _life) { life += _life; };
-	inline void addAttack(int _attack) { attack += _attack; };
+	inline void addX(const int& _x) { pos.moveX(_x); };
+	inline void addY(const int& _y) { pos.moveY(_y); };
+	inline void addLife(const int& _life) { life += _life; };
+	inline void addAttack(const int& _attack) { attack += _attack; };
 	inline void changeAlive() { alive ^= true; };
-	inline void addSpeed(int _speed) { speed += _speed; };
+	inline void addSpeed(const int& _speed) { speed += _speed; };
 
 	void draw();
 	void freeSprite();
 
-	inline void SetCollisionState(bool onCol, Entity* other) { isCollisioning = onCol; other = otherColEntity; };
+	inline void SetCollisionState(const bool& onCol, Entity* const& other) { isCollisioning = onCol; otherColEntity = other; };
 
 private:
 
 	void DrawBody();
-	int x, y;
+	rlVector2 pos;
 	int life;
 	int attack;
 	int speed;
