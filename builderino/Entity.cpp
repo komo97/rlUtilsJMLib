@@ -4,15 +4,20 @@ Entity::Entity(const int& _type, const int& _x, const int& _y)
 {
 	type = _type;
 	pos = rlVector2(_x, _y);
+	sprite = NULL;
+	otherColEntity = NULL;
+	rlUtilJM::AddEntityToManager(this);
 }
 
 Entity::Entity()
 {
-
+	sprite = NULL;
+	otherColEntity = NULL;
 }
 
 Entity::~Entity()
 {
+	freeSprite();
 }
 
 void Entity::setSprite( int ** const& _sprite)
@@ -55,7 +60,7 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 	spriteSizeX = sizeX;
 	spriteSizeY = sizeY;
 	sprite = new int*[spriteSizeY];
-	for (int i = 0; i <spriteSizeX; i++)
+	for (int i = 0; i <spriteSizeX; ++i)
 	{
 		sprite[i] = new int[spriteSizeX];
 	}
@@ -63,12 +68,14 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 
 void Entity::draw()
 {
+	if (sprite == NULL)
+		return;
 	DrawBody();
 }
 
 void Entity::freeSprite()
 {
-	for (int i = 0; i < spriteSizeY; i++)
+	for (int i = 0; i < spriteSizeY; ++i)
 	{
 		delete[](sprite[i]);
 	}
@@ -80,33 +87,39 @@ void Entity::DrawBody()
 	if (type == CHARACTER || type == ENEMY)
 	{
 		int i, j;
-		for (i = 0; i < spriteSizeY; i++)
+		for (i = 0; i < spriteSizeY; ++i)
 		{
-			for (j = 0; j < spriteSizeX; j++)
+			for (j = 0; j < spriteSizeX; ++j)
 			{
+				int x = pos.getX() + j % rlUtilJM::getScreenWidth();
+				int y = pos.getY() + i % rlUtilJM::getScreenHeight();
+				//if ((pos.getX() + j > rlUtilJM::getScreenWidth()) ||
+				//	pos.getY() + i > rlUtilJM::getScreenHeight() ||
+				//	pos.getX() < 0 || pos.getY() < 0)
+				//	continue;
 				if ((sprite[i][j]) & CHARACTER1)
 				{
-					rlUtilJM::AddToBuffer(color1, bg1, letter1, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::AddToBuffer(color1, bg1, letter1, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & CHARACTER2)
 				{
-					rlUtilJM::AddToBuffer(color2, bg2, letter2, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::AddToBuffer(color2, bg2, letter2, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & CHARACTER3)
 				{
-					rlUtilJM::AddToBuffer(color3, bg3, letter3, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::AddToBuffer(color3, bg3, letter3, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & CHARACTER4)
 				{
-					rlUtilJM::AddToBuffer(color4, bg4, letter4, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::AddToBuffer(color4, bg4, letter4, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & WEAPON)
 				{
-					rlUtilJM::AddToBuffer(weapon, BLACK, charWeapon, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::AddToBuffer(weapon, BLACK, charWeapon, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & CLEAR)
 				{
-					rlUtilJM::AddToBuffer(BLACK, BLACK, ' ', pos.getX() + j, pos.getY() + i, CLEAR, nullptr);
+					rlUtilJM::AddToBuffer(BLACK, BLACK, ' ', x, y, CLEAR, nullptr);
 				}
 				else
 				{
@@ -118,9 +131,9 @@ void Entity::DrawBody()
 	else if (type == BACKGROUND)
 	{
 		int i, j;
-		for (i = 0; i < spriteSizeY; i++)
+		for (i = 0; i < spriteSizeY; ++i)
 		{
-			for (j = 0; j < spriteSizeX; j++)
+			for (j = 0; j < spriteSizeX; ++j)
 			{
 				if ((sprite[i][j]) & BACKGROUND1)
 				{

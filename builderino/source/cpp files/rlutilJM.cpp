@@ -6,8 +6,8 @@
 
 int rlUtilJM::SCREEN_SIZE_WIDTH;
 int rlUtilJM::SCREEN_SIZE_HEIGHT;
-Tile** rlUtilJM::screenBuffer;
-Tile** rlUtilJM::lastScreenBuffer;
+Tile** rlUtilJM::screenBuffer = NULL;
+Tile** rlUtilJM::lastScreenBuffer = NULL;
 sf::Music rlUtilJM::music;
 sf::SoundBuffer rlUtilJM::soundBuffer;
 sf::Sound rlUtilJM::sound;
@@ -15,7 +15,7 @@ CONSOLE_FONT_INFOEX rlUtilJM::savedFont;
 std::queue<std::function<void()>> rlUtilJM::delegator;
 std::thread rlUtilJM::drawThread;
 std::mutex rlUtilJM::m;
-Entity *rlUtilJM::emptyEntity;
+Entity *rlUtilJM::emptyEntity = NULL;
 PCONSOLE_SCREEN_BUFFER_INFO info = new CONSOLE_SCREEN_BUFFER_INFO;
 bool rlUtilJM::buffIsEmpty = false;
 
@@ -174,6 +174,19 @@ void rlUtilJM::RestoreFont()
 	SetCurrentConsoleFontEx(consoleOutput, FALSE, &savedFont);
 }
 
+void rlUtilJM::Cleanup()
+{
+	delete emptyEntity;
+	for (int i = SCREEN_SIZE_HEIGHT; i--;)
+	{
+		delete[] screenBuffer[i];
+		delete[] lastScreenBuffer[i];
+	}
+	delete screenBuffer;
+	delete lastScreenBuffer;
+	CleanEntities();
+}
+
 void rlUtilJM::PrintBuffer()
 {
 	if (buffIsEmpty)
@@ -231,6 +244,14 @@ void rlUtilJM::CreateFakeScreenBuffer()
 	}
 }
 
+void rlUtilJM::CleanEntities()
+{
+	for(auto entity : entityManager)
+	{
+		delete entity;
+	}
+}
+
 void rlUtilJM::TextWrapper(const char * text, const int& color,
 	const int& background, const int& posx, const int& posy)
 {
@@ -263,6 +284,11 @@ void rlUtilJM::AddToDrawThread(const std::function<void()>& funct)
 		delegator.push(funct);
 	m.unlock();
 
+}
+
+void rlUtilJM::AddEntityToManager(Entity * const & entity)
+{
+	entityManager.push_back(entity);
 }
 
 void rlUtilJM::setEventCollisionStatus(const bool& _status, Entity * collisioned, Entity * const& other)

@@ -4,15 +4,20 @@ Entity::Entity(const int& _type, const int& _x, const int& _y)
 {
 	type = _type;
 	pos = rlVector2(_x, _y);
+	sprite = NULL;
+	otherColEntity = NULL;
+	rlUtilJM::AddEntityToManager(this);
 }
 
 Entity::Entity()
 {
-
+	sprite = NULL;
+	otherColEntity = NULL;
 }
 
 Entity::~Entity()
 {
+	freeSprite();
 }
 
 void Entity::setSprite( int ** const& _sprite)
@@ -63,6 +68,8 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 
 void Entity::draw()
 {
+	if (sprite == NULL)
+		return;
 	DrawBody();
 }
 

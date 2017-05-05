@@ -188,6 +188,8 @@ public:
 	///</summary>
 	static void AddToDrawThread(const std::function<void()>& func);
 
+	static void AddEntityToManager(Entity * const& entity);
+
 private:
 	static int SCREEN_SIZE_WIDTH;
 	static int SCREEN_SIZE_HEIGHT;
@@ -202,6 +204,7 @@ private:
 	static std::mutex m;
 	static Entity *emptyEntity;
 	static bool buffIsEmpty;
+	static std::vector<Entity*> entityManager;
 
 	///<summary>
 	///Sets the collision status for every Entity in screen.
@@ -218,6 +221,8 @@ private:
 	///It is already called in <code>WindowSize()</code> 
 	///</summary>
 	static void CreateFakeScreenBuffer();
+
+	static void CleanEntities();
 
 protected:
 
@@ -259,6 +264,8 @@ protected:
 	///its defaults.
 	///</summary>
 	static void RestoreFont();
+
+	static void Cleanup();
 
 
 

@@ -23,6 +23,7 @@ void rlUtilJMApp::Update()
 void rlUtilJMApp::OnClose()
 {
 	rlUtilJM::RestoreFont();
+	rlUtilJM::Cleanup();
 }
 
 void rlUtilJMApp::EndOfFrame()

@@ -20,6 +20,6 @@ private:
 	int backVal;
 	char letVal;
 	int ocupant;
-	Entity* entity;
+	Entity* entity = NULL;
 };
 #endif

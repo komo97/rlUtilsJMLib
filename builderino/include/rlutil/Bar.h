@@ -2,8 +2,9 @@
 #ifndef _BAR_H_
 #define _BAR_H_
 #include "rlUtilJM.h"
+#include "Entity.h"
 
-class Bar{
+class Bar : Entity{
 public:
 	Bar(int _x, int _y);
 	~Bar();
