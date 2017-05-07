@@ -18,6 +18,10 @@ std::mutex rlUtilJM::m;
 Entity *rlUtilJM::emptyEntity = NULL;
 PCONSOLE_SCREEN_BUFFER_INFO info = new CONSOLE_SCREEN_BUFFER_INFO;
 bool rlUtilJM::buffIsEmpty = false;
+std::vector<Entity*> rlUtilJM::entityManager;
+HANDLE WINAPI rlUtilJM::mainBuffer;
+HANDLE WINAPI rlUtilJM::backBuffer;
+bool rlUtilJM::mainBuffActive = true;
 
 void rlUtilJM::KeepScreenSize()
 {
@@ -56,6 +60,7 @@ void rlUtilJM::WindowSize(const int& _x, const int& _y)
 		SetConsoleScreenBufferSize(consoleOutput, coord);
 		MoveWindow(wnd, 0, 0, _x - 1, _y - 1, FALSE);
 	}
+
 	KeepScreenSize();
 
 	hidecursor();
@@ -164,6 +169,11 @@ void rlUtilJM::ClearBuffer()
 			screenBuffer[i][j].setEntity(emptyEntity);
 		}
 	}
+	COORD c;
+	c.X = 0;
+	c.Y = 0;
+	FillConsoleOutputCharacter(mainBuffActive ? backBuffer : mainBuffer,
+		'\0', SCREEN_SIZE_HEIGHT * SCREEN_SIZE_WIDTH, c, NULL);
 	buffIsEmpty = true;
 }
 
@@ -191,6 +201,7 @@ void rlUtilJM::PrintBuffer()
 {
 	if (buffIsEmpty)
 		return;
+	mainBuffActive ^= true;
 	for (int i = 0; i < SCREEN_SIZE_HEIGHT; ++i)
 	{
 		for (int j = 0; j < SCREEN_SIZE_WIDTH; ++j)
@@ -206,10 +217,14 @@ void rlUtilJM::PrintBuffer()
 				screenBuffer[i][j].getColor() != lastScreenBuffer[i][j].getColor() ||
 				screenBuffer[i][j].getLetter() != lastScreenBuffer[i][j].getLetter())
 			{
-				locate(j, i);
 				setColor(screenBuffer[i][j].getColor());
 				setBackgroundColor(screenBuffer[i][j].getBackground());
-				std::cout << screenBuffer[i][j].getLetter();
+				COORD c;
+				c.X = j;
+				c.Y = i;
+				char letter = screenBuffer[i][j].getLetter();
+				WriteConsoleOutputCharacter(mainBuffActive ? mainBuffer : backBuffer,
+					&letter, 1, c, NULL);
 			}
 			lastScreenBuffer[i][j].setBackground(screenBuffer[i][j].getBackground());
 			lastScreenBuffer[i][j].setColor(screenBuffer[i][j].getColor());
@@ -217,7 +232,7 @@ void rlUtilJM::PrintBuffer()
 			lastScreenBuffer[i][j].setOcupant(screenBuffer[i][j].getOcupant());
 		}
 	}
-
+	SetConsoleActiveScreenBuffer(mainBuffActive ? mainBuffer : backBuffer);
 	ClearBuffer();
 }
 
@@ -242,6 +257,11 @@ void rlUtilJM::CreateFakeScreenBuffer()
 			lastScreenBuffer[i][j].setChar(screenBuffer[i][j].getLetter());
 		}
 	}
+	mainBuffer = GetStdHandle(STD_OUTPUT_HANDLE);
+	backBuffer = CreateConsoleScreenBuffer(NULL, FILE_SHARE_WRITE | FILE_SHARE_READ, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+	SetConsoleActiveScreenBuffer(backBuffer);
+	std::string mod = "MODE CON COLS=" + std::to_string(SCREEN_SIZE_WIDTH) + " LINES=" + std::to_string(SCREEN_SIZE_HEIGHT);
+	SetConsoleActiveScreenBuffer(mainBuffer);
 }
 
 void rlUtilJM::CleanEntities()

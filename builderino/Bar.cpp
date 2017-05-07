@@ -39,23 +39,23 @@ void Bar::DrawBody()
 		{
 			if (i == 0 || i + 1 == spriteSizeY || j == 0 || j + 1 == spriteSizeX)
 			{
-				rlUtilJM::AddToBuffer(constraint, constraint, ' ', x + j, y + i, BAR, nullptr);
+				rlUtilJM::AddToBuffer(constraint, constraint, '\0', x + j, y + i, RLBAR, nullptr);
 			}
 			else if (j <= drawPercent && (percent) >= 50)
 			{
-				rlUtilJM::AddToBuffer(color1, color1, ' ', x + j, y + i, BAR, nullptr);
+				rlUtilJM::AddToBuffer(color1, color1, '\0', x + j, y + i, RLBAR, nullptr);
 			}
 			else if (j <= drawPercent && (percent) < 50 && (percent) > 25)
 			{
-				rlUtilJM::AddToBuffer(color2, color2, ' ', x + j, y + i, BAR, nullptr);
+				rlUtilJM::AddToBuffer(color2, color2, '\0', x + j, y + i, RLBAR, nullptr);
 			}
 			else if (j <= drawPercent && (percent) <= 25)
 			{
-				rlUtilJM::AddToBuffer(color3, color3, ' ', x + j, y + i, BAR, nullptr);
+				rlUtilJM::AddToBuffer(color3, color3, '\0', x + j, y + i, RLBAR, nullptr);
 			}
 			else
 			{
-				rlUtilJM::AddToBuffer(BLACK, BLACK, ' ', x + j, y + i, CLEAR, nullptr);
+				rlUtilJM::AddToBuffer(	ALPHACOLOR,	ALPHACOLOR, '\0', x + j, y + i, CLEAR, nullptr);
 			}
 		}
 	}

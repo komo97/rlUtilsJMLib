@@ -13,6 +13,7 @@ Entity::Entity()
 {
 	sprite = NULL;
 	otherColEntity = NULL;
+	rlUtilJM::AddEntityToManager(this);
 }
 
 Entity::~Entity()
@@ -22,9 +23,9 @@ Entity::~Entity()
 
 void Entity::setSprite( int ** const& _sprite)
 {
-	for (int i = 0; i < spriteSizeY; i++)
+	for (int i = 0; i < spriteSizeY; ++i)
 	{
-		for (int j = 0; j < spriteSizeX; j++)
+		for (int j = 0; j < spriteSizeX; ++j)
 		{
 			sprite[i][j] = _sprite[i][j];
 		}
@@ -60,7 +61,7 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 	spriteSizeX = sizeX;
 	spriteSizeY = sizeY;
 	sprite = new int*[spriteSizeY];
-	for (int i = 0; i <spriteSizeX; ++i)
+	for (int i = 0; i <spriteSizeY; ++i)
 	{
 		sprite[i] = new int[spriteSizeX];
 	}
@@ -84,19 +85,17 @@ void Entity::freeSprite()
 
 void Entity::DrawBody()
 {
-	if (type == CHARACTER || type == ENEMY)
+	if (type == RLCHARACTER || type == RLENEMY)
 	{
 		int i, j;
 		for (i = 0; i < spriteSizeY; ++i)
 		{
 			for (j = 0; j < spriteSizeX; ++j)
 			{
-				int x = pos.getX() + j % rlUtilJM::getScreenWidth();
-				int y = pos.getY() + i % rlUtilJM::getScreenHeight();
-				//if ((pos.getX() + j > rlUtilJM::getScreenWidth()) ||
-				//	pos.getY() + i > rlUtilJM::getScreenHeight() ||
-				//	pos.getX() < 0 || pos.getY() < 0)
-				//	continue;
+				int x = (pos.getX() + j) % rlUtilJM::getScreenWidth();
+				int y = (pos.getY() + i) % rlUtilJM::getScreenHeight();
+				x = x < 0 ? (rlUtilJM::getScreenWidth() + x) : x;
+				y = y < 0 ? (rlUtilJM::getScreenHeight() + y) : y;
 				if ((sprite[i][j]) & CHARACTER1)
 				{
 					rlUtilJM::AddToBuffer(color1, bg1, letter1, x, y, type, this);
@@ -115,11 +114,11 @@ void Entity::DrawBody()
 				}
 				else if ((sprite[i][j]) & WEAPON)
 				{
-					rlUtilJM::AddToBuffer(weapon, BLACK, charWeapon, x, y, type, this);
+					rlUtilJM::AddToBuffer(weapon, ALPHACOLOR, charWeapon, x, y, type, this);
 				}
 				else if ((sprite[i][j]) & CLEAR)
 				{
-					rlUtilJM::AddToBuffer(BLACK, BLACK, ' ', x, y, CLEAR, nullptr);
+					rlUtilJM::AddToBuffer(ALPHACOLOR, ALPHACOLOR, '\9', x, y, CLEAR, nullptr);
 				}
 				else
 				{
@@ -128,7 +127,7 @@ void Entity::DrawBody()
 			}
 		}
 	}
-	else if (type == BACKGROUND)
+	else if (type == RLBACKGROUND)
 	{
 		int i, j;
 		for (i = 0; i < spriteSizeY; ++i)
@@ -153,7 +152,7 @@ void Entity::DrawBody()
 				}
 				else if ((sprite[i][j]) & CLEAR)
 				{
-					rlUtilJM::AddToBuffer(BLACK, BLACK, ' ', pos.getX() + j, pos.getY() + i, CLEAR, nullptr);
+					rlUtilJM::AddToBuffer(ALPHACOLOR, ALPHACOLOR, '\0', pos.getX() + j, pos.getY() + i, CLEAR, nullptr);
 				}
 				else
 				{

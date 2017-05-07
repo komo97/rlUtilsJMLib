@@ -42,6 +42,7 @@
 #include <Wincon.h>
 #include <mmsystem.h>
 #include <iostream>
+#include "rlutil\ColorPalette.h"
 #include "rlutil\rlutil.h"
 #include "SFML\System.hpp"
 #include "SFML\Audio.hpp"
@@ -57,45 +58,114 @@
 
 using namespace rlutil;
 
-namespace rlutilJM {
 	//This are colors bytes. You will probably won't use them at all directly.
-#define CLEAR 0
-#define FLOOR1 1
-#define FLOOR2 (1<<1)
-#define FLOOR3 (1<<2)
-#define FLOOR4 (1<<3)
-#define BACKGROUND1 2
-#define BACKGROUND2 (2<<1)
-#define BACKGROUND3 (2<<2)
-#define BACKGROUND4 (2<<3)
-#define BAR1 3
-#define BAR2 (3<<1)
-#define BAR3 (3<<2)
-#define BARCONSTRAINTS (3<<3)
-#define CHARACTER1 (4<<1)
-#define CHARACTER2 (4<<2)
-#define CHARACTER3 (4<<3)
-#define CHARACTER4 (4<<4)
-#define WEAPON (4<<5)
-#define EMPTY 5
+#define CLEAR			0
+#define FLOOR1			1
+#define FLOOR2			(1<<1)
+#define FLOOR3			(1<<2)
+#define FLOOR4			(1<<3)
+#define BACKGROUND1		2
+#define BACKGROUND2		(2<<1)
+#define BACKGROUND3		(2<<2)
+#define BACKGROUND4		(2<<3)
+#define BAR1			3
+#define BAR2			(3<<1)
+#define BAR3			(3<<2)
+#define BARCONSTRAINTS	(3<<3)
+#define CHARACTER1		(4<<1)
+#define CHARACTER2		(4<<2)
+#define CHARACTER3		(4<<3)
+#define CHARACTER4		(4<<4)
+#define WEAPON			(4<<5)
+#define EMPTY			5
 
 	//This are defines for directions. You might want to use them on specific cases.
-#define DIRRIGHT 1
-#define DIRLEFT -1
-#define DIRUP 1
-#define DIRDOWN -1
-#define NOMOVE 0
+#define DIRRIGHT		1
+#define DIRLEFT			-1
+#define DIRUP			1
+#define DIRDOWN			-1
+#define NOMOVE			0
 
 	//This are the type of the entity. You can use them if you want on the functions that require them.
-#define CHARACTER 0x0001
-#define BACKGROUND 0x0002
-#define BAR 0x0003
-#define TEXT 0x0004 
-#define WALL 0x0005
-#define ENEMY 0x0006
-};
+#define RLCHARACTER		0x0001
+#define RLBACKGROUND	0x0002
+#define RLBAR			0x0003
+#define RLTEXT			0x0004 
+#define RLWALL			0x0005
+#define RLENEMY			0x0006
 
-using namespace rlutilJM;
+	//This values are for using with a custom color pallete.
+#define LETCOLOR1		0x0000			//0000
+#define LETCOLOR2		0x0001			//0001
+#define LETCOLOR3		0x0002			//0010
+#define LETCOLOR4		0x0003			//0011	
+#define LETCOLOR5		0x0004			//0100
+#define LETCOLOR6		0x0005			//0101
+#define LETCOLOR7		0x0006			//0110
+#define LETCOLOR8		0x0007			//0111
+#define LETCOLOR9		0x0008			//1000
+#define LETCOLOR10		0x0009			//1001
+#define LETCOLOR11		0x000A			//1010
+#define LETCOLOR12		0x000B			//1011
+#define LETCOLOR13		0x000C			//1100
+#define LETCOLOR14		0x000D			//1101
+#define LETCOLOR15		0x000E			//1110
+#define LETCOLOR16		0x000F			//1111
+
+#define BACKCOLOR1		0x0000
+#define BACKCOLOR2		0x0010
+#define BACKCOLOR3		0x0020
+#define BACKCOLOR4		0x0030
+#define BACKCOLOR5		0x0040
+#define BACKCOLOR6		0x0050
+#define BACKCOLOR7		0x0060
+#define BACKCOLOR8		0x0070
+#define BACKCOLOR9		0x0080
+#define BACKCOLOR10		0x0090
+#define BACKCOLOR11		0x00A0
+#define BACKCOLOR12		0x00B0
+#define BACKCOLOR13		0x00C0
+#define BACKCOLOR14		0x00D0
+#define BACKCOLOR15		0x00E0
+#define BACKCOLOR16		0x00F0
+	
+	//Use this ones if you aren't using a new pallete.
+#define LBASEBLACK			LETCOLOR1
+#define LBASEBLUE			LETCOLOR2
+#define LBASEGREEN			LETCOLOR3
+#define LBASECYAN			LETCOLOR4
+#define LBASERED			LETCOLOR5
+#define LBASEMAGENTA		LETCOLOR6
+#define LBASEBROWN			LETCOLOR7
+#define LBASEGREY			LETCOLOR8
+#define LBASEDARKGREY		LETCOLOR9
+#define LBASELIGHTBLUE		LETCOLOR10
+#define LBASELIGHTGREEN		LETCOLOR11
+#define LBASELIGHTCYAN		LETCOLOR12
+#define LBASELIGHTRED		LETCOLOR13
+#define LBASELIGHTMAGENTA	LETCOLOR14
+#define	LBASEYELLOW			LETCOLOR15
+#define LBASEWHITE			LETCOLOR16
+
+#define BBASEBLACK			BACKCOLOR1
+#define BBASEBLUE			BACKCOLOR2
+#define BBASEGREEN			BACKCOLOR3
+#define BBASECYAN			BACKCOLOR4
+#define BBASERED			BACKCOLOR5
+#define BBASEMAGENTA		BACKCOLOR6
+#define BBASEBROWN			BACKCOLOR7
+#define BBASEGREY			BACKCOLOR8
+#define BBASEDARKGREY		BACKCOLOR9
+#define BBASELIGHTBLUE		BACKCOLOR10
+#define BBASELIGHTGREEN		BACKCOLOR11
+#define BBASELIGHTCYAN		BACKCOLOR12
+#define BBASELIGHTRED		BACKCOLOR13
+#define BBASELIGHTMAGENTA	BACKCOLOR14
+#define	BBASEYELLOW			BACKCOLOR15
+#define BBASEWHITE			BACKCOLOR16
+
+#define ALPHACOLOR			100
+
 
 class Entity;
 
@@ -190,6 +260,14 @@ public:
 
 	static void AddEntityToManager(Entity * const& entity);
 
+	static void ChangeColorPalette(const ColorPalette& pal);
+	
+	static ColorPalette GetColorPalette();
+
+	static void ChangeWindowTitle(const char* title);
+
+	static void ShouldClearScreen(bool cls = true);
+
 private:
 	static int SCREEN_SIZE_WIDTH;
 	static int SCREEN_SIZE_HEIGHT;
@@ -205,6 +283,16 @@ private:
 	static Entity *emptyEntity;
 	static bool buffIsEmpty;
 	static std::vector<Entity*> entityManager;
+	static HANDLE WINAPI mainBuffer;
+	static HANDLE WINAPI backBuffer;
+	static HANDLE WINAPI savedBuffer;
+	static bool mainBuffActive;
+	static CHAR_INFO *printBufferCont;
+	static CONSOLE_SCREEN_BUFFER_INFOEX savedBuffInfoEx;
+	static CONSOLE_SCREEN_BUFFER_INFO savedBuffInfo;
+	static ColorPalette basicPalette;
+	static ColorPalette currentPallete;
+	static bool ShouldCls;
 
 	///<summary>
 	///Sets the collision status for every Entity in screen.
@@ -266,9 +354,6 @@ protected:
 	static void RestoreFont();
 
 	static void Cleanup();
-
-
-
 
 };
 

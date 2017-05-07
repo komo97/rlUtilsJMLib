@@ -205,6 +205,9 @@ private:
 	static Entity *emptyEntity;
 	static bool buffIsEmpty;
 	static std::vector<Entity*> entityManager;
+	static HANDLE WINAPI mainBuffer;
+	static HANDLE WINAPI backBuffer;
+	static bool mainBuffActive;
 
 	///<summary>
 	///Sets the collision status for every Entity in screen.
