@@ -27,6 +27,11 @@ void Entity::setSprite( int ** const& _sprite)
 	{
 		for (int j = 0; j < spriteSizeX; ++j)
 		{
+			if (sprite[i][j] != NULL && sprite[i][j] != _sprite[i][j] && 
+				!(pos.getX() + j > rlUtilJM::getScreenWidth() - 1 ||
+				pos.getX() + j < 0 || pos.getY() + i < 0 ||
+				pos.getY() + i > rlUtilJM::getScreenHeight() - 1))
+				rlUtilJM::SetDrawnTile(false, pos.getX() + j, pos.getY() + i);
 			sprite[i][j] = _sprite[i][j];
 		}
 	}
@@ -64,6 +69,8 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 	for (int i = 0; i <spriteSizeY; ++i)
 	{
 		sprite[i] = new int[spriteSizeX];
+		for (int j = spriteSizeX; j--;)
+			sprite[i][j] = NULL;
 	}
 }
 
@@ -139,7 +146,10 @@ void Entity::DrawBody()
 		{
 			for (j = 0; j < spriteSizeX; ++j)
 			{
-				
+				if (pos.getX() + j > rlUtilJM::getScreenWidth() - 1 ||
+					pos.getX() + j < 0 || pos.getY() + i < 0 ||
+					pos.getY() + i > rlUtilJM::getScreenHeight() - 1)
+					continue;
 				if ((sprite[i][j]) & BACKGROUND1)
 				{
 					rlUtilJM::AddToBuffer(color1, bg1, letter1, pos.getX() + j, pos.getY() + i, type, this);
