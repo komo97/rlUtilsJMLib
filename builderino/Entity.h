@@ -24,6 +24,7 @@ public:
 	inline int getLife() { return life; };
 	inline bool isOnCollision() { return isCollisioning; };
 	inline Entity* collisionOther() { return otherColEntity; };
+	inline bool getIsStatic() { return isStatic; };
 
 	//Setters
 	inline void setX(const int& _x) { pos.setX(_x); };
@@ -50,6 +51,7 @@ public:
 	inline void setWeaponLetter(const char& _let) { charWeapon = _let; };
 	void setBackgrounds(const int& _bg1, const int& _bg2, const int& _bg3, const int& _bg4);
 	void InitSprite(const int& sizeX, const int& sizeY);
+	inline void setIsStatic(const bool& _static) { isStatic = _static; };
 
 	//Modifiers
 	inline void addX(const int& _x) { pos.moveX(_x); };
@@ -91,6 +93,7 @@ private:
 	int spriteSizeY;
 	int type;
 	bool isCollisioning;
+	bool isStatic;
 	Entity* otherColEntity;
 };
 #endif // !_ENTITY_H_

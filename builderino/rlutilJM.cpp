@@ -181,11 +181,14 @@ void rlUtilJM::ClearBuffer()
 	{
 		for (j = 0; j < SCREEN_SIZE_WIDTH; ++j)
 		{
+			if (screenBuffer[i][j].getIsStatic() && screenBuffer[i][j].getIsDrawn())
+				continue;
 			screenBuffer[i][j].setBackground(0);
 			screenBuffer[i][j].setColor(0);
 			screenBuffer[i][j].setChar('\0');
 			screenBuffer[i][j].setOcupant(EMPTY);
 			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setDrawn(false);
 		}
 	}
 	buffIsEmpty = true;
@@ -223,6 +226,10 @@ void rlUtilJM::PrintBuffer()
 	HANDLE WINAPI buff = mainBuffActive ? mainBuffer : backBuffer;
 	COORD dir{ (SHORT)0, (SHORT)0 };
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+		SMALL_RECT s{ (SHORT)0, (SHORT)0,
+		(SHORT)SCREEN_SIZE_WIDTH - 1, (SHORT)SCREEN_SIZE_HEIGHT - 1 };
+	COORD sizeArr{ (SHORT)SCREEN_SIZE_WIDTH, (SHORT)SCREEN_SIZE_HEIGHT};
+	bool screenChanged = false;
 	GetConsoleScreenBufferInfo(buff, &csbi);
 	for (int i = 0; i < SCREEN_SIZE_HEIGHT; ++i)
 	{
@@ -236,19 +243,22 @@ void rlUtilJM::PrintBuffer()
 				setEventCollisionStatus(true, lastScreenBuffer[i][j].getEntity(), screenBuffer[i][j].getEntity());
 				setEventCollisionStatus(true, screenBuffer[i][j].getEntity(), lastScreenBuffer[i][j].getEntity());
 			}
-			printBufferCont[SCREEN_SIZE_WIDTH * i + j].Char.AsciiChar =
-				screenBuffer[i][j].getLetter();
-			printBufferCont[SCREEN_SIZE_WIDTH * i + j].Attributes =
-				screenBuffer[i][j].getColor() |
-				screenBuffer[i][j].getBackground();
+				if (!screenChanged && !screenBuffer[i][j].getIsDrawn())
+				{
+					screenChanged = true;
+				}
+				printBufferCont[SCREEN_SIZE_WIDTH * i + j].Char.AsciiChar =
+					screenBuffer[i][j].getLetter();
+				printBufferCont[SCREEN_SIZE_WIDTH * i + j].Attributes =
+					screenBuffer[i][j].getColor() |
+					screenBuffer[i][j].getBackground();
+				screenBuffer[i][j].setDrawn(true);
 			lastScreenBuffer[i][j].setOcupant(screenBuffer[i][j].getOcupant());
 			lastScreenBuffer[i][j].setEntity(screenBuffer[i][j].getEntity());
 		}
 	}
-	COORD sizeArr{ (SHORT)SCREEN_SIZE_WIDTH, (SHORT)SCREEN_SIZE_HEIGHT};
-	SMALL_RECT s{ (SHORT)0, (SHORT)0,
-		(SHORT)SCREEN_SIZE_WIDTH - 1, (SHORT)SCREEN_SIZE_HEIGHT - 1 };
-	WriteConsoleOutput(buff, printBufferCont, sizeArr, dir,&s);
+	if (!screenChanged) return;
+	WriteConsoleOutput(buff, printBufferCont, sizeArr, dir, &s);
 	std::this_thread::sleep_for(std::chrono::milliseconds(11));
 	SetConsoleActiveScreenBuffer(buff);
 	if(ShouldCls)
@@ -267,6 +277,7 @@ void rlUtilJM::CreateFakeScreenBuffer()
 		for (int j = 0; j < SCREEN_SIZE_WIDTH; ++j)
 		{
 			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setDrawn(false);
 			lastScreenBuffer[i][j].setEntity(emptyEntity);
 		}
 	}
@@ -328,6 +339,7 @@ void rlUtilJM::TextWrapper(const char * text, const int& color,
 	for (int i = 0; i < a.size(); ++i)
 	{
 		AddToBuffer(color, background, a[i], posx + i, posy, RLTEXT, nullptr);
+		SetStaticTile(false, posx + i, posy);
 	}
 }
 
@@ -385,7 +397,17 @@ void rlUtilJM::ChangeWindowTitle(const char * title)
 	SetConsoleTitle(title);
 }
 
-void rlUtilJM::ShouldClearScreen(bool cls)
+void rlUtilJM::SetStaticTile(const bool & _static, const int& x, const int& y)
+{
+	screenBuffer[y][x].setStatic(_static);
+}
+
+void rlUtilJM::SetDrawnTile(const bool & _drawn, const int& x, const int& y)
+{
+	screenBuffer[y][x].setDrawn(_drawn);
+}
+
+void rlUtilJM::ShouldClearScreen(const bool& cls)
 {
 	ShouldCls = cls;
 }

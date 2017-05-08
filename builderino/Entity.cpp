@@ -99,22 +99,27 @@ void Entity::DrawBody()
 				if ((sprite[i][j]) & CHARACTER1)
 				{
 					rlUtilJM::AddToBuffer(color1, bg1, letter1, x, y, type, this);
+					rlUtilJM::SetStaticTile(isStatic, x, y);
 				}
 				else if ((sprite[i][j]) & CHARACTER2)
 				{
 					rlUtilJM::AddToBuffer(color2, bg2, letter2, x, y, type, this);
+					rlUtilJM::SetStaticTile(isStatic, x, y);
 				}
 				else if ((sprite[i][j]) & CHARACTER3)
 				{
 					rlUtilJM::AddToBuffer(color3, bg3, letter3, x, y, type, this);
+					rlUtilJM::SetStaticTile(isStatic, x, y);
 				}
 				else if ((sprite[i][j]) & CHARACTER4)
 				{
 					rlUtilJM::AddToBuffer(color4, bg4, letter4, x, y, type, this);
+					rlUtilJM::SetStaticTile(isStatic, x, y);
 				}
 				else if ((sprite[i][j]) & WEAPON)
 				{
 					rlUtilJM::AddToBuffer(weapon, ALPHACOLOR, charWeapon, x, y, type, this);
+					rlUtilJM::SetStaticTile(isStatic, x, y);
 				}
 				else if ((sprite[i][j]) & CLEAR)
 				{
@@ -134,21 +139,26 @@ void Entity::DrawBody()
 		{
 			for (j = 0; j < spriteSizeX; ++j)
 			{
+				
 				if ((sprite[i][j]) & BACKGROUND1)
 				{
 					rlUtilJM::AddToBuffer(color1, bg1, letter1, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::SetStaticTile(isStatic, pos.getX() + j, pos.getY() + i);
 				}
 				else if ((sprite[i][j]) & BACKGROUND2)
 				{
 					rlUtilJM::AddToBuffer(color2, bg2, letter2, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::SetStaticTile(isStatic, pos.getX() + j, pos.getY() + i);
 				}
 				else if ((sprite[i][j]) & BACKGROUND3)
 				{
 					rlUtilJM::AddToBuffer(color3, bg3, letter3, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::SetStaticTile(isStatic, pos.getX() + j, pos.getY() + i);
 				}
 				else if ((sprite[i][j]) & BACKGROUND4)
 				{
 					rlUtilJM::AddToBuffer(color4, bg4, letter4, pos.getX() + j, pos.getY() + i, type, this);
+					rlUtilJM::SetStaticTile(isStatic, pos.getX() + j, pos.getY() + i);
 				}
 				else if ((sprite[i][j]) & CLEAR)
 				{
