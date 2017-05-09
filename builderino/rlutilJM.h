@@ -274,6 +274,8 @@ public:
 
 	static void SetDrawnTile(const bool& _drawn, const int& x, const int& y);
 
+	static void ForceClearScreen();
+
 private:
 	static int SCREEN_SIZE_WIDTH;
 	static int SCREEN_SIZE_HEIGHT;

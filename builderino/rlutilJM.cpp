@@ -237,8 +237,10 @@ void rlUtilJM::PrintBuffer()
 		{
 			if (screenBuffer[i][j].getOcupant() != lastScreenBuffer[i][j].getOcupant() &&
 				screenBuffer[i][j].getOcupant() != EMPTY &&
-				screenBuffer[i][j].getOcupant() != RLBAR && lastScreenBuffer[i][j].getEntity() != emptyEntity
-				&& screenBuffer[i][j].getOcupant() != RLBACKGROUND)
+				screenBuffer[i][j].getOcupant() != RLBAR && 
+				lastScreenBuffer[i][j].getEntity() != emptyEntity &&
+				lastScreenBuffer[i][j].getEntity() != nullptr &&
+				screenBuffer[i][j].getEntity() != nullptr)
 			{
 				setEventCollisionStatus(true, lastScreenBuffer[i][j].getEntity(), screenBuffer[i][j].getEntity());
 				setEventCollisionStatus(true, screenBuffer[i][j].getEntity(), lastScreenBuffer[i][j].getEntity());
@@ -405,6 +407,25 @@ void rlUtilJM::SetStaticTile(const bool & _static, const int& x, const int& y)
 void rlUtilJM::SetDrawnTile(const bool & _drawn, const int& x, const int& y)
 {
 	screenBuffer[y][x].setDrawn(_drawn);
+}
+
+void rlUtilJM::ForceClearScreen() {
+	rlutil::resetColor();
+	int i, j;
+	for (i = 0; i < SCREEN_SIZE_HEIGHT; ++i)
+	{
+		for (j = 0; j < SCREEN_SIZE_WIDTH; ++j)
+		{
+
+			screenBuffer[i][j].setBackground(0);
+			screenBuffer[i][j].setColor(0);
+			screenBuffer[i][j].setChar('\0');
+			screenBuffer[i][j].setOcupant(EMPTY);
+			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setDrawn(false);
+		}
+	}
+	buffIsEmpty = true;
 }
 
 void rlUtilJM::ShouldClearScreen(const bool& cls)
