@@ -54,8 +54,8 @@ public:
 	inline void setIsStatic(const bool& _static) { isStatic = _static; };
 
 	//Modifiers
-	inline void addX(const int& _x) { pos.moveX(_x); };
-	inline void addY(const int& _y) { pos.moveY(_y); };
+	void addX(const int& _x);
+	void addY(const int& _y);
 	inline void addLife(const int& _life) { life += _life; };
 	inline void addAttack(const int& _attack) { attack += _attack; };
 	inline void changeAlive() { alive ^= true; };

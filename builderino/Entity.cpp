@@ -74,6 +74,16 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 	}
 }
 
+void Entity::addX(const int & _x)
+{
+	pos.moveX(_x); 
+}
+
+void Entity::addY(const int & _y)
+{
+	pos.moveY(_y);
+}
+
 void Entity::draw()
 {
 	if (sprite == NULL)
