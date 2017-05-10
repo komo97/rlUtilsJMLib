@@ -1,0 +1,95 @@
+\hypertarget{classrl_util_j_m_app}{}\section{rl\+Util\+J\+M\+App Class Reference}
+\label{classrl_util_j_m_app}\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+
+
+{\ttfamily \#include $<$rlutil\+J\+M\+App.\+h$>$}
+
+Inheritance diagram for rl\+Util\+J\+M\+App\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrl_util_j_m_app}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classrl_util_j_m_app_ae8abc1581be03bd0dd50ec4fcd915062}{Draw} ()
+\begin{DoxyCompactList}\small\item\em Overload to add any draw operations. Only call Entity-\/$>$Draw from here. /summary$>$ \end{DoxyCompactList}\item 
+virtual void \hyperlink{classrl_util_j_m_app_afeeb2c2481b03b070958827c16f90ebe}{Start} ()
+\item 
+virtual void \hyperlink{classrl_util_j_m_app_ab2d1c8458f70c9846f7e47804e433491}{Update} ()
+\item 
+void \hyperlink{classrl_util_j_m_app_a322eb5957d1fea6fe19423085ed9fb33}{App} (const int \&window\+Width\+In\+Pixels, const int \&window\+Height\+In\+Pixels, const char $\ast$name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classrl_util_j_m_app_a3f4f4b35aa1c6aa9ec469452c705d276}{On\+Close} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classrl_util_j_m_app_ab85c6b31f7ff7d7825f13b0ebe49261d}{Draw\+Step} ()
+\begin{DoxyCompactList}\small\item\em Starts the draw thread and all draw operations /summary$>$ \end{DoxyCompactList}\item 
+void \hyperlink{classrl_util_j_m_app_ad2333da858d397b08fd99fea22ad2c9d}{End\+Of\+Frame} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classrl_util_j_m_app_a322eb5957d1fea6fe19423085ed9fb33}\label{classrl_util_j_m_app_a322eb5957d1fea6fe19423085ed9fb33}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!App@{App}}
+\index{App@{App}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{App()}{App()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+App (\begin{DoxyParamCaption}\item[{const int \&}]{window\+Width\+In\+Pixels,  }\item[{const int \&}]{window\+Height\+In\+Pixels,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+summary$>$ This function is called once the window receives a signal to close /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_app_ae8abc1581be03bd0dd50ec4fcd915062}\label{classrl_util_j_m_app_ae8abc1581be03bd0dd50ec4fcd915062}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!Draw@{Draw}}
+\index{Draw@{Draw}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Overload to add any draw operations. Only call Entity-\/$>$Draw from here. /summary$>$ 
+
+summary$>$ The first function to be called on the hierarchy. Overload to add setup components. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_app_ab85c6b31f7ff7d7825f13b0ebe49261d}\label{classrl_util_j_m_app_ab85c6b31f7ff7d7825f13b0ebe49261d}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!Draw\+Step@{Draw\+Step}}
+\index{Draw\+Step@{Draw\+Step}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{Draw\+Step()}{DrawStep()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+Draw\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Starts the draw thread and all draw operations /summary$>$ 
+
+summary$>$ This function is called at the end of the frame /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_app_ad2333da858d397b08fd99fea22ad2c9d}\label{classrl_util_j_m_app_ad2333da858d397b08fd99fea22ad2c9d}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!End\+Of\+Frame@{End\+Of\+Frame}}
+\index{End\+Of\+Frame@{End\+Of\+Frame}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{End\+Of\+Frame()}{EndOfFrame()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+End\+Of\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_app_a3f4f4b35aa1c6aa9ec469452c705d276}\label{classrl_util_j_m_app_a3f4f4b35aa1c6aa9ec469452c705d276}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!On\+Close@{On\+Close}}
+\index{On\+Close@{On\+Close}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{On\+Close()}{OnClose()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+On\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_app_afeeb2c2481b03b070958827c16f90ebe}\label{classrl_util_j_m_app_afeeb2c2481b03b070958827c16f90ebe}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!Start@{Start}}
+\index{Start@{Start}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+summary$>$ This function runs on a game loop, once start finishes No other operations outside update will be run. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_app_ab2d1c8458f70c9846f7e47804e433491}\label{classrl_util_j_m_app_ab2d1c8458f70c9846f7e47804e433491}} 
+\index{rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}!Update@{Update}}
+\index{Update@{Update}!rl\+Util\+J\+M\+App@{rl\+Util\+J\+M\+App}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+App\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+summary$>$ Run this function from main. After it runs no code outside from it will ever run. /summary$>$ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rlutil_j_m_app_8h}{rlutil\+J\+M\+App.\+h}\item 
+\hyperlink{rlutil_j_m_app_8cpp}{rlutil\+J\+M\+App.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,564 @@
+\hypertarget{classrl_util_j_m}{}\section{rl\+Util\+JM Class Reference}
+\label{classrl_util_j_m}\index{rl\+Util\+JM@{rl\+Util\+JM}}
+
+
+{\ttfamily \#include $<$rlutil\+J\+M.\+h$>$}
+
+Inheritance diagram for rl\+Util\+JM\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrl_util_j_m}
+\end{center}
+\end{figure}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classrl_util_j_m_ae639b58b2e2e5005713ddcc2fb8aae85}{Play\+Music\+Background} (const char $\ast$\+\_\+music\+Path, const B\+O\+OL \&\+\_\+loop, const float \&\+\_\+vol, const B\+O\+OL \&\+\_\+stop\+Current\+Audio)
+\begin{DoxyCompactList}\small\item\em Initiates an event for music to reproduce. Only works with .ogg and .flac files. This is a song that will play only if nothing else is playing. It may stop any other song from playing by using stop\+Current\+Audio. remark$>$Uses S\+F\+ML$<$/remark$>$.\end{DoxyCompactList}\item 
+static void \hyperlink{classrl_util_j_m_a5cc8ccacbff13db4c30a8062931abc8a}{Play\+Sound\+Effect} (const char $\ast$\+\_\+music\+Path, const float \&\+\_\+vol)
+\item 
+static void \hyperlink{classrl_util_j_m_adb79c17ae56d7250de66c4b3bbbc0100}{Change\+Background\+Volume} (const float \&\+\_\+vol)
+\item 
+static float \hyperlink{classrl_util_j_m_a5e87185e9a310fa7a062f3a9dc1a8fe4}{Get\+Background\+Volume} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a5c644b24e7f40914588ecc68843558e9}{Pause\+Background\+Music} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a98c9c78f103e273f0279f6fea63a5cbf}{Un\+Pause\+Background\+Music} ()
+\item 
+static bool \hyperlink{classrl_util_j_m_a0caa07e32aacb98dc10bff4d83c647c7}{Background\+Music\+Is\+Playing} ()
+\item 
+static bool \hyperlink{classrl_util_j_m_ac82d68787a3e359f545b4b6af149108e}{Background\+Music\+Is\+Paused} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a0c75d3b77f530a1efcbd2e1a3be0957e}{Add\+To\+Buffer} (const int \&\+\_\+color\+Val, const int \&\+\_\+back\+Val, const char \&\+\_\+let\+Val, const int \&posx, const int \&posy, const int \&ocup, \hyperlink{class_entity}{Entity} $\ast$const \&entity)
+\item 
+static void \hyperlink{classrl_util_j_m_a43e3fa7db14af85ff8f5ed181951d594}{Text\+Wrapper} (const char $\ast$text, const int \&color, const int \&background, const int \&posx, const int \&posy)
+\item 
+static void \hyperlink{classrl_util_j_m_a0ef1e4ced4409dd7cae55c98a4bc27cd}{Add\+Pixel} (const int \&y, const int \&x, const int \&content, int $\ast$$\ast$\&\+\_\+sprite)
+\item 
+static int $\ast$$\ast$ \hyperlink{classrl_util_j_m_ab436632258aae9ef4a26626eddd41d84}{Init\+Sprite\+Array} (const int \&y, const int \&x)
+\item 
+static int \hyperlink{classrl_util_j_m_a72e4969b98d728c9b27b7c515101874f}{get\+Screen\+Width} ()
+\item 
+static int \hyperlink{classrl_util_j_m_a6e984d89ab3e4c086561e3747f7ea4ac}{get\+Screen\+Height} ()
+\item 
+static void \hyperlink{classrl_util_j_m_adb7f531e1a2608a1d733be327a5bb528}{Add\+To\+Draw\+Thread} (const std\+::function$<$ void()$>$ \&func)
+\item 
+static void \hyperlink{classrl_util_j_m_ae7cd27af31fab44d6bfb7f97139394e1}{Add\+Entity\+To\+Manager} (\hyperlink{class_entity}{Entity} $\ast$const \&entity)
+\item 
+static void \hyperlink{classrl_util_j_m_afc4417768a9d85a87db09ec0eb7b5f75}{Change\+Color\+Palette} (const \hyperlink{class_color_palette}{Color\+Palette} \&pal)
+\item 
+static \hyperlink{class_color_palette}{Color\+Palette} \hyperlink{classrl_util_j_m_a7c2712b6313fc11053bb2b85ba359a71}{Get\+Color\+Palette} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a7cb21b69316862af266fbd085ea80f97}{Change\+Window\+Title} (const char $\ast$title)
+\item 
+static void \hyperlink{classrl_util_j_m_a78f6a6c06bce80e04fe3df7d6ba38afe}{Should\+Clear\+Screen} (const bool \&\hyperlink{rlutil_8h_a90cf62e5fababbb0a99aa405a74899ac}{cls}=true)
+\item 
+static void \hyperlink{classrl_util_j_m_a90e0883ca7f6dd2063fcde3480830808}{Set\+Static\+Tile} (const bool \&\+\_\+static, const int \&x, const int \&y)
+\item 
+static void \hyperlink{classrl_util_j_m_aa04c7a7bc0538a74f79acd2b37c497c6}{Clean\+Entities} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a9c4237973b2b58d8184e423da86c3bcb}{Set\+Drawn\+Tile} (const bool \&\+\_\+drawn, const int \&x, const int \&y)
+\item 
+static void \hyperlink{classrl_util_j_m_a930b84b615e254f3cb2e83d70c346e94}{Force\+Clear\+Screen} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classrl_util_j_m_ad9dc4f7945ef3b7619b792b8d82f3580}{execute\+Draw} ()
+\begin{DoxyCompactList}\small\item\em Executes the draw step. Runs in another thread. /summary$>$ \end{DoxyCompactList}\item 
+static void \hyperlink{classrl_util_j_m_a367f3a8c8eaed42854a775dd8be511a4}{start\+Draw\+Thread} (const std\+::function$<$ void()$>$ \&funct)
+\item 
+static void \hyperlink{classrl_util_j_m_a42a91e1b4843f6326c79e7dcd3701d3e}{Keep\+Screen\+Size} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a6816ea9d8b393b20bbac3b2712d20654}{Window\+Size} (const int \&\+\_\+x, const int \&\+\_\+y)
+\item 
+static void \hyperlink{classrl_util_j_m_addc07d316aedfb7a7aa13bd774a7ad06}{Print\+Buffer} ()
+\item 
+static void \hyperlink{classrl_util_j_m_aa7d02be670eaf0a8ac3d97a71f85cd8c}{Clear\+Buffer} ()
+\item 
+static void \hyperlink{classrl_util_j_m_adc81711e284db4c813ec7055eab05ad7}{Restore\+Font} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a6981baa969d95022e67aeeff1d38deda}{Cleanup} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classrl_util_j_m_a1f75535f3200ef421bb28afd77358627}{set\+Event\+Collision\+Status} (const bool \&\+\_\+status, \hyperlink{class_entity}{Entity} $\ast$collisioned, \hyperlink{class_entity}{Entity} $\ast$const \&other)
+\item 
+static void \hyperlink{classrl_util_j_m_a22d403c1bad6a4b6eb74bba4f200496d}{Font\+Size} ()
+\item 
+static void \hyperlink{classrl_util_j_m_a89821abf41757212f1a4f046b734d45b}{Create\+Fake\+Screen\+Buffer} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classrl_util_j_m_afefcc8459829f1dd722fa8ba2a00de7e}{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH}
+\begin{DoxyCompactList}\small\item\em The screen width in console pixels. /summary$>$ \end{DoxyCompactList}\item 
+static int \hyperlink{classrl_util_j_m_abf6bb47334fc17dfda072430c6fe6d56}{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT}
+\item 
+static \hyperlink{class_tile}{Tile} $\ast$$\ast$ \hyperlink{classrl_util_j_m_aeb7bf36dcf28128f978568053552e4f5}{screen\+Buffer} = N\+U\+LL
+\item 
+static \hyperlink{class_tile}{Tile} $\ast$$\ast$ \hyperlink{classrl_util_j_m_a59c68887fde5d301a6f6520049a622d8}{last\+Screen\+Buffer} = N\+U\+LL
+\item 
+static sf\+::\+Music \hyperlink{classrl_util_j_m_af674b0f94fe8beb836cb2d416109e52c}{music}
+\item 
+static sf\+::\+Sound\+Buffer \hyperlink{classrl_util_j_m_a624fabc30e3d76c5a32dadca5ea1186d}{sound\+Buffer}
+\item 
+static sf\+::\+Sound \hyperlink{classrl_util_j_m_a9657abcb8f9ebba2f246e5ffc86c920d}{sound}
+\item 
+static std\+::thread \hyperlink{classrl_util_j_m_a4ea8d5da372d2fee4641e0bddcdb9133}{draw\+Thread}
+\item 
+static std\+::queue$<$ std\+::function$<$ void()$>$ $>$ \hyperlink{classrl_util_j_m_a1df970acbe44fac6cb97d745919b23a9}{delegator}
+\item 
+static C\+O\+N\+S\+O\+L\+E\+\_\+\+F\+O\+N\+T\+\_\+\+I\+N\+F\+O\+EX \hyperlink{classrl_util_j_m_af5fa1b868595501a74efe2d3df096967}{saved\+Font}
+\item 
+static std\+::mutex \hyperlink{classrl_util_j_m_a1a8bbd1ef16d9c99251e5a43cc5000fc}{m}
+\item 
+static bool \hyperlink{classrl_util_j_m_ae190159bd0ef09b7052d7bb21c5a32fb}{buff\+Is\+Empty} = false
+\item 
+static std\+::vector$<$ \hyperlink{class_entity}{Entity} $\ast$ $>$ \hyperlink{classrl_util_j_m_a295dbb06816363aeec0c42b1435d56cb}{entity\+Manager}
+\item 
+static H\+A\+N\+D\+LE W\+I\+N\+A\+PI \hyperlink{classrl_util_j_m_a3682e4076d4df42fa3bc753bfce1c96b}{main\+Buffer}
+\item 
+static H\+A\+N\+D\+LE W\+I\+N\+A\+PI \hyperlink{classrl_util_j_m_a1460d52658dd84c331ea611137fc50f2}{back\+Buffer}
+\item 
+static H\+A\+N\+D\+LE W\+I\+N\+A\+PI \hyperlink{classrl_util_j_m_a3e51c90fb6965763d63edd29e57525cf}{saved\+Buffer}
+\item 
+static bool \hyperlink{classrl_util_j_m_a179ab751158e2eb284cc711404e89604}{main\+Buff\+Active} = true
+\item 
+static C\+H\+A\+R\+\_\+\+I\+N\+FO $\ast$ \hyperlink{classrl_util_j_m_a8d2728630d228078e97a21e833a9023a}{print\+Buffer\+Cont}
+\item 
+static C\+O\+N\+S\+O\+L\+E\+\_\+\+S\+C\+R\+E\+E\+N\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+I\+N\+F\+O\+EX \hyperlink{classrl_util_j_m_a1791fa097dafd0a8eb7d3b85514aee4e}{saved\+Buff\+Info\+Ex}
+\item 
+static C\+O\+N\+S\+O\+L\+E\+\_\+\+S\+C\+R\+E\+E\+N\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+I\+N\+FO \hyperlink{classrl_util_j_m_a462fe037cf2e8b6d87c3ba45bcb1d453}{saved\+Buff\+Info}
+\item 
+static \hyperlink{class_color_palette}{Color\+Palette} \hyperlink{classrl_util_j_m_a3055475de8f0221cf48d443371640108}{basic\+Palette}
+\item 
+static \hyperlink{class_color_palette}{Color\+Palette} \hyperlink{classrl_util_j_m_a15c920c1aa73d6853a6fd40c53ae0f0a}{current\+Pallete}
+\item 
+static bool \hyperlink{classrl_util_j_m_ac5e0a55c087fec67ca6b5ab54d0649c0}{Should\+Cls} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classrl_util_j_m_ae7cd27af31fab44d6bfb7f97139394e1}\label{classrl_util_j_m_ae7cd27af31fab44d6bfb7f97139394e1}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Add\+Entity\+To\+Manager@{Add\+Entity\+To\+Manager}}
+\index{Add\+Entity\+To\+Manager@{Add\+Entity\+To\+Manager}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Add\+Entity\+To\+Manager()}{AddEntityToManager()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Add\+Entity\+To\+Manager (\begin{DoxyParamCaption}\item[{\hyperlink{class_entity}{Entity} $\ast$const \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Changes the color palette. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a0ef1e4ced4409dd7cae55c98a4bc27cd}\label{classrl_util_j_m_a0ef1e4ced4409dd7cae55c98a4bc27cd}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Add\+Pixel@{Add\+Pixel}}
+\index{Add\+Pixel@{Add\+Pixel}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Add\+Pixel()}{AddPixel()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Add\+Pixel (\begin{DoxyParamCaption}\item[{const int \&}]{y,  }\item[{const int \&}]{x,  }\item[{const int \&}]{content,  }\item[{int $\ast$$\ast$\&}]{\+\_\+sprite }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns an initialized bi dimensional Int array. Simple method for saving some lines. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a0c75d3b77f530a1efcbd2e1a3be0957e}\label{classrl_util_j_m_a0c75d3b77f530a1efcbd2e1a3be0957e}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Add\+To\+Buffer@{Add\+To\+Buffer}}
+\index{Add\+To\+Buffer@{Add\+To\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Add\+To\+Buffer()}{AddToBuffer()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Add\+To\+Buffer (\begin{DoxyParamCaption}\item[{const int \&}]{\+\_\+color\+Val,  }\item[{const int \&}]{\+\_\+back\+Val,  }\item[{const char \&}]{\+\_\+let\+Val,  }\item[{const int \&}]{posx,  }\item[{const int \&}]{posy,  }\item[{const int \&}]{ocup,  }\item[{\hyperlink{class_entity}{Entity} $\ast$const \&}]{entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Writes text to the fake screen buffer. Using {\ttfamily cout} will not give any results, use this instead. Doesn\textquotesingle{}t allow line skips. /summary$>$ param name=\char`\"{}text\char`\"{}$>$The text to show.
+
+param name=\char`\"{}color\char`\"{}$>$The letter\textquotesingle{}s color.
+
+param name=\char`\"{}background\char`\"{}$>$The background\textquotesingle{}s color.
+
+param name=\char`\"{}posx\char`\"{}$>$The starting position of the letters in X.
+
+param name=\char`\"{}posy\char`\"{}$>$The starting position of the letters in Y.\mbox{\Hypertarget{classrl_util_j_m_adb7f531e1a2608a1d733be327a5bb528}\label{classrl_util_j_m_adb7f531e1a2608a1d733be327a5bb528}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Add\+To\+Draw\+Thread@{Add\+To\+Draw\+Thread}}
+\index{Add\+To\+Draw\+Thread@{Add\+To\+Draw\+Thread}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Add\+To\+Draw\+Thread()}{AddToDrawThread()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Add\+To\+Draw\+Thread (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Avoid calls to this method as it is automatically called on every draw method. Adds a function to the draw thread queue. /summary$>$ summary$>$ Adds an enitity to the memory manager for disposal. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_ac82d68787a3e359f545b4b6af149108e}\label{classrl_util_j_m_ac82d68787a3e359f545b4b6af149108e}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Background\+Music\+Is\+Paused@{Background\+Music\+Is\+Paused}}
+\index{Background\+Music\+Is\+Paused@{Background\+Music\+Is\+Paused}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Background\+Music\+Is\+Paused()}{BackgroundMusicIsPaused()}}
+{\footnotesize\ttfamily bool rl\+Util\+J\+M\+::\+Background\+Music\+Is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ To print the sprites to the screen the engine creates a fake screen macrobuffer which later is printed onto the console. Please do not use anywhere as each draw method works around this. Insead use Enitity-\/$>$draw() or bar-\/$>$draw(). /summary$>$ param name=\char`\"{}\+\_\+color\+Val\char`\"{}$>$The letter\textquotesingle{}s color.
+
+param name=\char`\"{}\+\_\+back\+Val\char`\"{}$>$The background\textquotesingle{}s color.
+
+param name=\char`\"{}\+\_\+let\+Val\char`\"{}$>$The letter to show.
+
+param name=\char`\"{}posx\char`\"{}$>$The buffer\textquotesingle{}s position in X.
+
+param name=\char`\"{}posy\char`\"{}$>$The buffer\textquotesingle{}s position in Y.
+
+param name=\char`\"{}ocup\char`\"{}$>$The tile\textquotesingle{}s ocupant.\mbox{\Hypertarget{classrl_util_j_m_a0caa07e32aacb98dc10bff4d83c647c7}\label{classrl_util_j_m_a0caa07e32aacb98dc10bff4d83c647c7}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Background\+Music\+Is\+Playing@{Background\+Music\+Is\+Playing}}
+\index{Background\+Music\+Is\+Playing@{Background\+Music\+Is\+Playing}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Background\+Music\+Is\+Playing()}{BackgroundMusicIsPlaying()}}
+{\footnotesize\ttfamily bool rl\+Util\+J\+M\+::\+Background\+Music\+Is\+Playing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns if the background track is currently paused. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_adb79c17ae56d7250de66c4b3bbbc0100}\label{classrl_util_j_m_adb79c17ae56d7250de66c4b3bbbc0100}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Change\+Background\+Volume@{Change\+Background\+Volume}}
+\index{Change\+Background\+Volume@{Change\+Background\+Volume}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Change\+Background\+Volume()}{ChangeBackgroundVolume()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Change\+Background\+Volume (\begin{DoxyParamCaption}\item[{const float \&}]{\+\_\+vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns the background\textquotesingle{}s music volume. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_afc4417768a9d85a87db09ec0eb7b5f75}\label{classrl_util_j_m_afc4417768a9d85a87db09ec0eb7b5f75}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Change\+Color\+Palette@{Change\+Color\+Palette}}
+\index{Change\+Color\+Palette@{Change\+Color\+Palette}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Change\+Color\+Palette()}{ChangeColorPalette()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Change\+Color\+Palette (\begin{DoxyParamCaption}\item[{const \hyperlink{class_color_palette}{Color\+Palette} \&}]{pal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns the current color pallete. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a7cb21b69316862af266fbd085ea80f97}\label{classrl_util_j_m_a7cb21b69316862af266fbd085ea80f97}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Change\+Window\+Title@{Change\+Window\+Title}}
+\index{Change\+Window\+Title@{Change\+Window\+Title}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Change\+Window\+Title()}{ChangeWindowTitle()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Change\+Window\+Title (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Sets if the screen should refresh with each frame. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_aa04c7a7bc0538a74f79acd2b37c497c6}\label{classrl_util_j_m_aa04c7a7bc0538a74f79acd2b37c497c6}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Clean\+Entities@{Clean\+Entities}}
+\index{Clean\+Entities@{Clean\+Entities}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Clean\+Entities()}{CleanEntities()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Clean\+Entities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Sets a the drawn state of a pixel. The drawn state refers to the question, has the pixel been drawn before and its not been refreshed?
+
+param name=\char`\"{}\+\_\+drawn\char`\"{}$>$ The state of the pixel.
+
+param name=\char`\"{}x\char`\"{}$>$ The x position of the pixel.
+
+param name=\char`\"{}y\char`\"{}$>$ The y position of the pixel.\mbox{\Hypertarget{classrl_util_j_m_a6981baa969d95022e67aeeff1d38deda}\label{classrl_util_j_m_a6981baa969d95022e67aeeff1d38deda}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_aa7d02be670eaf0a8ac3d97a71f85cd8c}\label{classrl_util_j_m_aa7d02be670eaf0a8ac3d97a71f85cd8c}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Clear\+Buffer@{Clear\+Buffer}}
+\index{Clear\+Buffer@{Clear\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Clear\+Buffer()}{ClearBuffer()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Clear\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Called at program\textquotesingle{}s exit. Restores the C\+MD functionality to its defaults. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a89821abf41757212f1a4f046b734d45b}\label{classrl_util_j_m_a89821abf41757212f1a4f046b734d45b}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Create\+Fake\+Screen\+Buffer@{Create\+Fake\+Screen\+Buffer}}
+\index{Create\+Fake\+Screen\+Buffer@{Create\+Fake\+Screen\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Create\+Fake\+Screen\+Buffer()}{CreateFakeScreenBuffer()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Create\+Fake\+Screen\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_ad9dc4f7945ef3b7619b792b8d82f3580}\label{classrl_util_j_m_ad9dc4f7945ef3b7619b792b8d82f3580}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!execute\+Draw@{execute\+Draw}}
+\index{execute\+Draw@{execute\+Draw}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{execute\+Draw()}{executeDraw()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::execute\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Executes the draw step. Runs in another thread. /summary$>$ 
+
+summary$>$ Starts the draw thread. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a22d403c1bad6a4b6eb74bba4f200496d}\label{classrl_util_j_m_a22d403c1bad6a4b6eb74bba4f200496d}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Font\+Size@{Font\+Size}}
+\index{Font\+Size@{Font\+Size}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Font\+Size()}{FontSize()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Font\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Creates the aforementioned fake screen buffer. Do not call anywhere. It is already called in {\ttfamily \hyperlink{classrl_util_j_m_a6816ea9d8b393b20bbac3b2712d20654}{Window\+Size()}} /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a930b84b615e254f3cb2e83d70c346e94}\label{classrl_util_j_m_a930b84b615e254f3cb2e83d70c346e94}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Force\+Clear\+Screen@{Force\+Clear\+Screen}}
+\index{Force\+Clear\+Screen@{Force\+Clear\+Screen}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Force\+Clear\+Screen()}{ForceClearScreen()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Force\+Clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_a5e87185e9a310fa7a062f3a9dc1a8fe4}\label{classrl_util_j_m_a5e87185e9a310fa7a062f3a9dc1a8fe4}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Get\+Background\+Volume@{Get\+Background\+Volume}}
+\index{Get\+Background\+Volume@{Get\+Background\+Volume}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Get\+Background\+Volume()}{GetBackgroundVolume()}}
+{\footnotesize\ttfamily float rl\+Util\+J\+M\+::\+Get\+Background\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Pauses the background music. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a7c2712b6313fc11053bb2b85ba359a71}\label{classrl_util_j_m_a7c2712b6313fc11053bb2b85ba359a71}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Get\+Color\+Palette@{Get\+Color\+Palette}}
+\index{Get\+Color\+Palette@{Get\+Color\+Palette}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Get\+Color\+Palette()}{GetColorPalette()}}
+{\footnotesize\ttfamily \hyperlink{class_color_palette}{Color\+Palette} rl\+Util\+J\+M\+::\+Get\+Color\+Palette (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Changes the name on the title bar on the window. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a6e984d89ab3e4c086561e3747f7ea4ac}\label{classrl_util_j_m_a6e984d89ab3e4c086561e3747f7ea4ac}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!get\+Screen\+Height@{get\+Screen\+Height}}
+\index{get\+Screen\+Height@{get\+Screen\+Height}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{get\+Screen\+Height()}{getScreenHeight()}}
+{\footnotesize\ttfamily static int rl\+Util\+J\+M\+::get\+Screen\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+summary$>$ Returns the screen height. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a72e4969b98d728c9b27b7c515101874f}\label{classrl_util_j_m_a72e4969b98d728c9b27b7c515101874f}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!get\+Screen\+Width@{get\+Screen\+Width}}
+\index{get\+Screen\+Width@{get\+Screen\+Width}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{get\+Screen\+Width()}{getScreenWidth()}}
+{\footnotesize\ttfamily static int rl\+Util\+J\+M\+::get\+Screen\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classrl_util_j_m_ab436632258aae9ef4a26626eddd41d84}\label{classrl_util_j_m_ab436632258aae9ef4a26626eddd41d84}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Init\+Sprite\+Array@{Init\+Sprite\+Array}}
+\index{Init\+Sprite\+Array@{Init\+Sprite\+Array}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Init\+Sprite\+Array()}{InitSpriteArray()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ rl\+Util\+J\+M\+::\+Init\+Sprite\+Array (\begin{DoxyParamCaption}\item[{const int \&}]{y,  }\item[{const int \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns the screen width. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a42a91e1b4843f6326c79e7dcd3701d3e}\label{classrl_util_j_m_a42a91e1b4843f6326c79e7dcd3701d3e}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Keep\+Screen\+Size@{Keep\+Screen\+Size}}
+\index{Keep\+Screen\+Size@{Keep\+Screen\+Size}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Keep\+Screen\+Size()}{KeepScreenSize()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Keep\+Screen\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Changes the screen size along with the font size. You should only use this at a startup function and once. /summary$>$ param name=\char`\"{}\+\_\+x\char`\"{}$>$Window\textquotesingle{}s width.
+
+param name=\char`\"{}\+\_\+y\char`\"{}$>$Window\textquotesingle{}s height.\mbox{\Hypertarget{classrl_util_j_m_a5c644b24e7f40914588ecc68843558e9}\label{classrl_util_j_m_a5c644b24e7f40914588ecc68843558e9}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Pause\+Background\+Music@{Pause\+Background\+Music}}
+\index{Pause\+Background\+Music@{Pause\+Background\+Music}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Pause\+Background\+Music()}{PauseBackgroundMusic()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Pause\+Background\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Unpauses the background music. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_ae639b58b2e2e5005713ddcc2fb8aae85}\label{classrl_util_j_m_ae639b58b2e2e5005713ddcc2fb8aae85}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Play\+Music\+Background@{Play\+Music\+Background}}
+\index{Play\+Music\+Background@{Play\+Music\+Background}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Play\+Music\+Background()}{PlayMusicBackground()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Play\+Music\+Background (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+music\+Path,  }\item[{const B\+O\+OL \&}]{\+\_\+loop,  }\item[{const float \&}]{\+\_\+vol,  }\item[{const B\+O\+OL \&}]{\+\_\+stop\+Current\+Audio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initiates an event for music to reproduce. Only works with .ogg and .flac files. This is a song that will play only if nothing else is playing. It may stop any other song from playing by using stop\+Current\+Audio. remark$>$Uses S\+F\+ML$<$/remark$>$.
+
+param name=\char`\"{}\+\_\+music\+Path\char`\"{}$>$The complete path to the music file. From \char`\"{}\+C\+:\textbackslash{}\textbackslash{}\char`\"{}.
+
+param name=\char`\"{}\+\_\+loop\char`\"{}$>$Will the music loop? T\+R\+UE or F\+A\+L\+SE only.
+
+param name=\char`\"{}\+\_\+vol\char`\"{}$>$The music volume.
+
+param name=\char`\"{}\+\_\+stop\+Current\+Audio\char`\"{}$>$If the current music should be stopped to start a new one.
+
+summary$>$Initiates an event for music to reproduce. Only works with .ogg and .flac files. remark$>$Uses S\+F\+ML$<$/remark$>$.
+
+param name=\char`\"{}\+\_\+music\+Path\char`\"{}$>$The complete path to the music file. From \char`\"{}\+C\+:\textbackslash{}\textbackslash{}\char`\"{}.
+
+param name=\char`\"{}\+\_\+vol\char`\"{}$>$The music volume.\mbox{\Hypertarget{classrl_util_j_m_a5cc8ccacbff13db4c30a8062931abc8a}\label{classrl_util_j_m_a5cc8ccacbff13db4c30a8062931abc8a}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Play\+Sound\+Effect@{Play\+Sound\+Effect}}
+\index{Play\+Sound\+Effect@{Play\+Sound\+Effect}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Play\+Sound\+Effect()}{PlaySoundEffect()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Play\+Sound\+Effect (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+music\+Path,  }\item[{const float \&}]{\+\_\+vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Changes the volume of the background music. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_addc07d316aedfb7a7aa13bd774a7ad06}\label{classrl_util_j_m_addc07d316aedfb7a7aa13bd774a7ad06}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Print\+Buffer@{Print\+Buffer}}
+\index{Print\+Buffer@{Print\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Print\+Buffer()}{PrintBuffer()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Print\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Clears the fake screen buffer. Call each frame on the start before anything else. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_adc81711e284db4c813ec7055eab05ad7}\label{classrl_util_j_m_adc81711e284db4c813ec7055eab05ad7}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Restore\+Font@{Restore\+Font}}
+\index{Restore\+Font@{Restore\+Font}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Restore\+Font()}{RestoreFont()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Restore\+Font (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Cleans every pointer at the end of the program. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a9c4237973b2b58d8184e423da86c3bcb}\label{classrl_util_j_m_a9c4237973b2b58d8184e423da86c3bcb}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Set\+Drawn\+Tile@{Set\+Drawn\+Tile}}
+\index{Set\+Drawn\+Tile@{Set\+Drawn\+Tile}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Set\+Drawn\+Tile()}{SetDrawnTile()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Set\+Drawn\+Tile (\begin{DoxyParamCaption}\item[{const bool \&}]{\+\_\+drawn,  }\item[{const int \&}]{x,  }\item[{const int \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Forces the screen to clear itself up. Used for custom refresh rates. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a1f75535f3200ef421bb28afd77358627}\label{classrl_util_j_m_a1f75535f3200ef421bb28afd77358627}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!set\+Event\+Collision\+Status@{set\+Event\+Collision\+Status}}
+\index{set\+Event\+Collision\+Status@{set\+Event\+Collision\+Status}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{set\+Event\+Collision\+Status()}{setEventCollisionStatus()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::set\+Event\+Collision\+Status (\begin{DoxyParamCaption}\item[{const bool \&}]{\+\_\+status,  }\item[{\hyperlink{class_entity}{Entity} $\ast$}]{collisioned,  }\item[{\hyperlink{class_entity}{Entity} $\ast$const \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Makes the C\+MD have square pixels. It\textquotesingle{}s already called in Window\+Size; /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a90e0883ca7f6dd2063fcde3480830808}\label{classrl_util_j_m_a90e0883ca7f6dd2063fcde3480830808}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Set\+Static\+Tile@{Set\+Static\+Tile}}
+\index{Set\+Static\+Tile@{Set\+Static\+Tile}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Set\+Static\+Tile()}{SetStaticTile()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Set\+Static\+Tile (\begin{DoxyParamCaption}\item[{const bool \&}]{\+\_\+static,  }\item[{const int \&}]{x,  }\item[{const int \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Deletes the current entities in the entity manager. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a78f6a6c06bce80e04fe3df7d6ba38afe}\label{classrl_util_j_m_a78f6a6c06bce80e04fe3df7d6ba38afe}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Should\+Clear\+Screen@{Should\+Clear\+Screen}}
+\index{Should\+Clear\+Screen@{Should\+Clear\+Screen}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Should\+Clear\+Screen()}{ShouldClearScreen()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Should\+Clear\+Screen (\begin{DoxyParamCaption}\item[{const bool \&}]{cls = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Sets a pixel to be static. That means that it wont be refreshed with each frame unless it is completely changed, either by overlapping or changing the sprite. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a367f3a8c8eaed42854a775dd8be511a4}\label{classrl_util_j_m_a367f3a8c8eaed42854a775dd8be511a4}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!start\+Draw\+Thread@{start\+Draw\+Thread}}
+\index{start\+Draw\+Thread@{start\+Draw\+Thread}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{start\+Draw\+Thread()}{startDrawThread()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::start\+Draw\+Thread (\begin{DoxyParamCaption}\item[{const std\+::function$<$ void()$>$ \&}]{funct }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Keeps the screen size at all times during runtime. Call one time each frame at it\textquotesingle{}s start. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a43e3fa7db14af85ff8f5ed181951d594}\label{classrl_util_j_m_a43e3fa7db14af85ff8f5ed181951d594}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Text\+Wrapper@{Text\+Wrapper}}
+\index{Text\+Wrapper@{Text\+Wrapper}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Text\+Wrapper()}{TextWrapper()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Text\+Wrapper (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text,  }\item[{const int \&}]{color,  }\item[{const int \&}]{background,  }\item[{const int \&}]{posx,  }\item[{const int \&}]{posy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Alternative to filling each element in a sprite array. /summary$>$ param name=\char`\"{}y\char`\"{}$>$The sprite\textquotesingle{}s space in Y.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The sprite\textquotesingle{}s space in X.\\
+\hline
+\end{DoxyParams}
+param name=\char`\"{}content\char`\"{}$>$The pixel\textquotesingle{}s content.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+sprite} & The array to work with by ref.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrl_util_j_m_a98c9c78f103e273f0279f6fea63a5cbf}\label{classrl_util_j_m_a98c9c78f103e273f0279f6fea63a5cbf}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Un\+Pause\+Background\+Music@{Un\+Pause\+Background\+Music}}
+\index{Un\+Pause\+Background\+Music@{Un\+Pause\+Background\+Music}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Un\+Pause\+Background\+Music()}{UnPauseBackgroundMusic()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Un\+Pause\+Background\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+summary$>$ Returns if there is a track playing on the background. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a6816ea9d8b393b20bbac3b2712d20654}\label{classrl_util_j_m_a6816ea9d8b393b20bbac3b2712d20654}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Window\+Size@{Window\+Size}}
+\index{Window\+Size@{Window\+Size}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Window\+Size()}{WindowSize()}}
+{\footnotesize\ttfamily void rl\+Util\+J\+M\+::\+Window\+Size (\begin{DoxyParamCaption}\item[{const int \&}]{\+\_\+x,  }\item[{const int \&}]{\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+summary$>$ Print method. Always call only once at the end of each frame. /summary$>$ 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classrl_util_j_m_a1460d52658dd84c331ea611137fc50f2}\label{classrl_util_j_m_a1460d52658dd84c331ea611137fc50f2}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!back\+Buffer@{back\+Buffer}}
+\index{back\+Buffer@{back\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{back\+Buffer}{backBuffer}}
+{\footnotesize\ttfamily H\+A\+N\+D\+LE W\+I\+N\+A\+PI rl\+Util\+J\+M\+::back\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This is the original buffer of the console, that is restored upon closing the program. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a3055475de8f0221cf48d443371640108}\label{classrl_util_j_m_a3055475de8f0221cf48d443371640108}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!basic\+Palette@{basic\+Palette}}
+\index{basic\+Palette@{basic\+Palette}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{basic\+Palette}{basicPalette}}
+{\footnotesize\ttfamily \hyperlink{class_color_palette}{Color\+Palette} rl\+Util\+J\+M\+::basic\+Palette\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This palete is the one that is assigned and used at every moment of the runtime. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_ae190159bd0ef09b7052d7bb21c5a32fb}\label{classrl_util_j_m_ae190159bd0ef09b7052d7bb21c5a32fb}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!buff\+Is\+Empty@{buff\+Is\+Empty}}
+\index{buff\+Is\+Empty@{buff\+Is\+Empty}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{buff\+Is\+Empty}{buffIsEmpty}}
+{\footnotesize\ttfamily bool rl\+Util\+J\+M\+::buff\+Is\+Empty = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This vector saves a reference to every entity that is created. Then deletes them at the program end. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a15c920c1aa73d6853a6fd40c53ae0f0a}\label{classrl_util_j_m_a15c920c1aa73d6853a6fd40c53ae0f0a}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!current\+Pallete@{current\+Pallete}}
+\index{current\+Pallete@{current\+Pallete}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{current\+Pallete}{currentPallete}}
+{\footnotesize\ttfamily \hyperlink{class_color_palette}{Color\+Palette} rl\+Util\+J\+M\+::current\+Pallete\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Should the screen be cleared at the end of the frame? /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a1df970acbe44fac6cb97d745919b23a9}\label{classrl_util_j_m_a1df970acbe44fac6cb97d745919b23a9}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!delegator@{delegator}}
+\index{delegator@{delegator}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{delegator}{delegator}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::function$<$ void()$>$ $>$ rl\+Util\+J\+M\+::delegator\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This variable saves the original font of the console for restoring it once the program closes. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a4ea8d5da372d2fee4641e0bddcdb9133}\label{classrl_util_j_m_a4ea8d5da372d2fee4641e0bddcdb9133}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!draw\+Thread@{draw\+Thread}}
+\index{draw\+Thread@{draw\+Thread}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{draw\+Thread}{drawThread}}
+{\footnotesize\ttfamily std\+::thread rl\+Util\+J\+M\+::draw\+Thread\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This queue holds all functions that run on the draw thread. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a295dbb06816363aeec0c42b1435d56cb}\label{classrl_util_j_m_a295dbb06816363aeec0c42b1435d56cb}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!entity\+Manager@{entity\+Manager}}
+\index{entity\+Manager@{entity\+Manager}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{entity\+Manager}{entityManager}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_entity}{Entity} $\ast$ $>$ rl\+Util\+J\+M\+::entity\+Manager\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This the first of the two buffers that the engine use for rendering. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a59c68887fde5d301a6f6520049a622d8}\label{classrl_util_j_m_a59c68887fde5d301a6f6520049a622d8}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!last\+Screen\+Buffer@{last\+Screen\+Buffer}}
+\index{last\+Screen\+Buffer@{last\+Screen\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{last\+Screen\+Buffer}{lastScreenBuffer}}
+{\footnotesize\ttfamily \hyperlink{class_tile}{Tile} $\ast$$\ast$ rl\+Util\+J\+M\+::last\+Screen\+Buffer = N\+U\+LL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Audio buffer for the background music. While the engine only provides one it is perfectly safe for anybody to use more than one. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a1a8bbd1ef16d9c99251e5a43cc5000fc}\label{classrl_util_j_m_a1a8bbd1ef16d9c99251e5a43cc5000fc}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!m@{m}}
+\index{m@{m}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily std\+::mutex rl\+Util\+J\+M\+::m\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Saves the state of the buffer, if it\textquotesingle{}s just been cleaned then it\textquotesingle{}s empty. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a179ab751158e2eb284cc711404e89604}\label{classrl_util_j_m_a179ab751158e2eb284cc711404e89604}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!main\+Buff\+Active@{main\+Buff\+Active}}
+\index{main\+Buff\+Active@{main\+Buff\+Active}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{main\+Buff\+Active}{mainBuffActive}}
+{\footnotesize\ttfamily bool rl\+Util\+J\+M\+::main\+Buff\+Active = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ The contents of the buffer. This is filled using the Tiles members. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a3682e4076d4df42fa3bc753bfce1c96b}\label{classrl_util_j_m_a3682e4076d4df42fa3bc753bfce1c96b}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!main\+Buffer@{main\+Buffer}}
+\index{main\+Buffer@{main\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{main\+Buffer}{mainBuffer}}
+{\footnotesize\ttfamily H\+A\+N\+D\+LE W\+I\+N\+A\+PI rl\+Util\+J\+M\+::main\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This is the second of the two buffers that the engine use for rendering. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_af674b0f94fe8beb836cb2d416109e52c}\label{classrl_util_j_m_af674b0f94fe8beb836cb2d416109e52c}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!music@{music}}
+\index{music@{music}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{music}{music}}
+{\footnotesize\ttfamily sf\+::\+Music rl\+Util\+J\+M\+::music\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Audio buffer for the sound effects. While the engine only provides one it is perfectly safe for anybody to use more than one. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a8d2728630d228078e97a21e833a9023a}\label{classrl_util_j_m_a8d2728630d228078e97a21e833a9023a}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!print\+Buffer\+Cont@{print\+Buffer\+Cont}}
+\index{print\+Buffer\+Cont@{print\+Buffer\+Cont}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{print\+Buffer\+Cont}{printBufferCont}}
+{\footnotesize\ttfamily C\+H\+A\+R\+\_\+\+I\+N\+FO $\ast$ rl\+Util\+J\+M\+::print\+Buffer\+Cont\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This member saves the information about the console for restoring it at the end. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a3e51c90fb6965763d63edd29e57525cf}\label{classrl_util_j_m_a3e51c90fb6965763d63edd29e57525cf}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!saved\+Buffer@{saved\+Buffer}}
+\index{saved\+Buffer@{saved\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{saved\+Buffer}{savedBuffer}}
+{\footnotesize\ttfamily H\+A\+N\+D\+LE W\+I\+N\+A\+PI rl\+Util\+J\+M\+::saved\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Saves the state of the swap buffer, if the active buffer is the first one this is true, if not then the second one is the active buffer. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a462fe037cf2e8b6d87c3ba45bcb1d453}\label{classrl_util_j_m_a462fe037cf2e8b6d87c3ba45bcb1d453}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!saved\+Buff\+Info@{saved\+Buff\+Info}}
+\index{saved\+Buff\+Info@{saved\+Buff\+Info}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{saved\+Buff\+Info}{savedBuffInfo}}
+{\footnotesize\ttfamily C\+O\+N\+S\+O\+L\+E\+\_\+\+S\+C\+R\+E\+E\+N\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+I\+N\+FO rl\+Util\+J\+M\+::saved\+Buff\+Info\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This palete is saved for restoring at the end. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a1791fa097dafd0a8eb7d3b85514aee4e}\label{classrl_util_j_m_a1791fa097dafd0a8eb7d3b85514aee4e}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!saved\+Buff\+Info\+Ex@{saved\+Buff\+Info\+Ex}}
+\index{saved\+Buff\+Info\+Ex@{saved\+Buff\+Info\+Ex}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{saved\+Buff\+Info\+Ex}{savedBuffInfoEx}}
+{\footnotesize\ttfamily C\+O\+N\+S\+O\+L\+E\+\_\+\+S\+C\+R\+E\+E\+N\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+I\+N\+F\+O\+EX rl\+Util\+J\+M\+::saved\+Buff\+Info\+Ex\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This member saves the information about the console for restoring it at the end. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_af5fa1b868595501a74efe2d3df096967}\label{classrl_util_j_m_af5fa1b868595501a74efe2d3df096967}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!saved\+Font@{saved\+Font}}
+\index{saved\+Font@{saved\+Font}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{saved\+Font}{savedFont}}
+{\footnotesize\ttfamily C\+O\+N\+S\+O\+L\+E\+\_\+\+F\+O\+N\+T\+\_\+\+I\+N\+F\+O\+EX rl\+Util\+J\+M\+::saved\+Font\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Mutex for solving race issues with the draw thread /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_abf6bb47334fc17dfda072430c6fe6d56}\label{classrl_util_j_m_abf6bb47334fc17dfda072430c6fe6d56}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT@{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT@{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT}{SCREEN\_SIZE\_HEIGHT}}
+{\footnotesize\ttfamily int rl\+Util\+J\+M\+::\+S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+H\+E\+I\+G\+HT\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This variable controls most of the data that enters the real console buffer. Most draw operations fo first here and then they are inserted in the console. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_afefcc8459829f1dd722fa8ba2a00de7e}\label{classrl_util_j_m_afefcc8459829f1dd722fa8ba2a00de7e}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH@{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH@{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH}{SCREEN\_SIZE\_WIDTH}}
+{\footnotesize\ttfamily int rl\+Util\+J\+M\+::\+S\+C\+R\+E\+E\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+W\+I\+D\+TH\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The screen width in console pixels. /summary$>$ 
+
+summary$>$ The screen height in console pixels. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_aeb7bf36dcf28128f978568053552e4f5}\label{classrl_util_j_m_aeb7bf36dcf28128f978568053552e4f5}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!screen\+Buffer@{screen\+Buffer}}
+\index{screen\+Buffer@{screen\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{screen\+Buffer}{screenBuffer}}
+{\footnotesize\ttfamily \hyperlink{class_tile}{Tile} $\ast$$\ast$ rl\+Util\+J\+M\+::screen\+Buffer = N\+U\+LL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ This is used for collision overlapping comprobations. It saves the contents of the last frame. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_ac5e0a55c087fec67ca6b5ab54d0649c0}\label{classrl_util_j_m_ac5e0a55c087fec67ca6b5ab54d0649c0}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!Should\+Cls@{Should\+Cls}}
+\index{Should\+Cls@{Should\+Cls}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{Should\+Cls}{ShouldCls}}
+{\footnotesize\ttfamily bool rl\+Util\+J\+M\+::\+Should\+Cls = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Sets the collision status for every \hyperlink{class_entity}{Entity} in screen. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a9657abcb8f9ebba2f246e5ffc86c920d}\label{classrl_util_j_m_a9657abcb8f9ebba2f246e5ffc86c920d}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!sound@{sound}}
+\index{sound@{sound}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{sound}{sound}}
+{\footnotesize\ttfamily sf\+::\+Sound rl\+Util\+J\+M\+::sound\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ The thread that manages all draw operations. /summary$>$ \mbox{\Hypertarget{classrl_util_j_m_a624fabc30e3d76c5a32dadca5ea1186d}\label{classrl_util_j_m_a624fabc30e3d76c5a32dadca5ea1186d}} 
+\index{rl\+Util\+JM@{rl\+Util\+JM}!sound\+Buffer@{sound\+Buffer}}
+\index{sound\+Buffer@{sound\+Buffer}!rl\+Util\+JM@{rl\+Util\+JM}}
+\subsubsection{\texorpdfstring{sound\+Buffer}{soundBuffer}}
+{\footnotesize\ttfamily sf\+::\+Sound\+Buffer rl\+Util\+J\+M\+::sound\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+summary$>$ Audio player for the sound effects. While the engine only provides one it is perfectly safe for anybody to use more than one. /summary$>$ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rlutil_j_m_8h}{rlutil\+J\+M.\+h}\item 
+\hyperlink{rlutil_j_m_8cpp}{rlutil\+J\+M.\+cpp}\end{DoxyCompactItemize}

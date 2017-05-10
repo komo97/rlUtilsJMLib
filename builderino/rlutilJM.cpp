@@ -15,7 +15,6 @@ CONSOLE_FONT_INFOEX rlUtilJM::savedFont;
 std::queue<std::function<void()>> rlUtilJM::delegator;
 std::thread rlUtilJM::drawThread;
 std::mutex rlUtilJM::m;
-Entity *rlUtilJM::emptyEntity = NULL;
 PCONSOLE_SCREEN_BUFFER_INFO info = new CONSOLE_SCREEN_BUFFER_INFO;
 bool rlUtilJM::buffIsEmpty = false;
 std::vector<Entity*> rlUtilJM::entityManager;
@@ -63,7 +62,6 @@ void rlUtilJM::WindowSize(const int& _x, const int& _y)
 {
 	cls();
 	HWND hwnd = GetConsoleWindow();
-	//SetWindowLong(hwnd, GWL_EXSTYLE, WS_EX_PALETTEWINDOW);
 	savedBuffer = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleScreenBufferInfo(savedBuffer, &savedBuffInfo);
 	GetConsoleScreenBufferInfoEx(savedBuffer, &savedBuffInfoEx);
@@ -187,7 +185,7 @@ void rlUtilJM::ClearBuffer()
 			screenBuffer[i][j].setColor(0);
 			screenBuffer[i][j].setChar('\0');
 			screenBuffer[i][j].setOcupant(EMPTY);
-			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setEntity(nullptr);
 			screenBuffer[i][j].setDrawn(false);
 		}
 	}
@@ -203,7 +201,6 @@ void rlUtilJM::RestoreFont()
 
 void rlUtilJM::Cleanup()
 {
-	delete emptyEntity;
 	for (int i = SCREEN_SIZE_HEIGHT; i--;)
 	{
 		delete[] screenBuffer[i];
@@ -238,7 +235,6 @@ void rlUtilJM::PrintBuffer()
 			if (screenBuffer[i][j].getOcupant() != lastScreenBuffer[i][j].getOcupant() &&
 				screenBuffer[i][j].getOcupant() != EMPTY &&
 				screenBuffer[i][j].getOcupant() != RLBAR && 
-				lastScreenBuffer[i][j].getEntity() != emptyEntity &&
 				lastScreenBuffer[i][j].getEntity() != nullptr &&
 				screenBuffer[i][j].getEntity() != nullptr)
 			{
@@ -269,7 +265,6 @@ void rlUtilJM::PrintBuffer()
 
 void rlUtilJM::CreateFakeScreenBuffer()
 {	
-	emptyEntity = emptyEntity == NULL ? new Entity() : emptyEntity;
 	screenBuffer = new Tile*[SCREEN_SIZE_HEIGHT];
 	lastScreenBuffer = new Tile*[SCREEN_SIZE_HEIGHT];
 	for (int i = 0; i < SCREEN_SIZE_HEIGHT; ++i)
@@ -278,9 +273,9 @@ void rlUtilJM::CreateFakeScreenBuffer()
 		lastScreenBuffer[i] = new Tile[SCREEN_SIZE_WIDTH];
 		for (int j = 0; j < SCREEN_SIZE_WIDTH; ++j)
 		{
-			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setEntity(nullptr);
 			screenBuffer[i][j].setDrawn(false);
-			lastScreenBuffer[i][j].setEntity(emptyEntity);
+			lastScreenBuffer[i][j].setEntity(nullptr);
 		}
 	}
 	CloseHandle(mainBuffer);
@@ -421,7 +416,7 @@ void rlUtilJM::ForceClearScreen() {
 			screenBuffer[i][j].setColor(0);
 			screenBuffer[i][j].setChar('\0');
 			screenBuffer[i][j].setOcupant(EMPTY);
-			screenBuffer[i][j].setEntity(emptyEntity);
+			screenBuffer[i][j].setEntity(nullptr);
 			screenBuffer[i][j].setDrawn(false);
 		}
 	}

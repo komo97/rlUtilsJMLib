@@ -13,7 +13,9 @@ public:
 	~Entity();
 	//Getters
 	inline int getX() { return pos.getX(); };
+	inline float getXf() { return pos.getXf(); };
 	inline int getY() { return pos.getY(); };
+	inline float getYf(){ return pos.getYf(); };
 	inline int getAttack() { return attack; };
 	inline int getSpeed() { return speed; };
 	inline bool isAlive() { return alive; };
@@ -27,8 +29,8 @@ public:
 	inline bool getIsStatic() { return isStatic; };
 
 	//Setters
-	inline void setX(const int& _x) { pos.setX(_x); };
-	inline void setY(const int& _y) { pos.setY( _y); };
+	inline void setX(const float& _x) { pos.setX(_x); };
+	inline void setY(const float& _y) { pos.setY( _y); };
 	///<summary>
 	///Don't fill if it's a background.
 	///</summary>
@@ -54,8 +56,8 @@ public:
 	inline void setIsStatic(const bool& _static) { isStatic = _static; };
 
 	//Modifiers
-	inline void addX(const int& _x) { pos.moveX(_x); };
-	inline void addY(const int& _y) { pos.moveY(_y); };
+	void addX(const float& _x);
+	void addY(const float& _y);
 	inline void addLife(const int& _life) { life += _life; };
 	inline void addAttack(const int& _attack) { attack += _attack; };
 	inline void changeAlive() { alive ^= true; };
@@ -64,6 +66,10 @@ public:
 	void draw();
 	void freeSprite();
 
+	///<summary>
+	///DO NOT CALL THIS METHOD.
+	///It is used internally to manage layer collisions.
+	///</summary>
 	inline void SetCollisionState(const bool& onCol, Entity* const& other) { isCollisioning = onCol; otherColEntity = other; };
 
 private:

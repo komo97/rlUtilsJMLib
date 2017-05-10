@@ -74,12 +74,12 @@ void Entity::InitSprite(const int& sizeX, const int& sizeY)
 	}
 }
 
-void Entity::addX(const int & _x)
+void Entity::addX(const float & _x)
 {
 	pos.moveX(_x); 
 }
 
-void Entity::addY(const int & _y)
+void Entity::addY(const float & _y)
 {
 	pos.moveY(_y);
 }
